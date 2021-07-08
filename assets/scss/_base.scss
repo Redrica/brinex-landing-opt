@@ -1,0 +1,38 @@
+html {
+    box-sizing: border-box;
+}
+
+*,
+*:before,
+*:after {
+    box-sizing: inherit;
+}
+
+html,
+body {
+    height: 100%;
+    //font-family: 'Open Sans', 'Arial', 'Helvetica Neue', sans-serif; // 'Helvetica Neue' для отображения знака рубля на iOS 13
+}
+
+body {
+    min-width: 415px;
+}
+
+.container {
+    max-width: 1280px;
+    margin: 0 auto;
+}
+
+.visually-hidden {
+    position: absolute;
+    overflow: hidden;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    border: 0;
+    clip: rect(0 0 0 0);
+    clip-path: inset(100%);
+    white-space: nowrap;
+    background-color: $white;
+}
