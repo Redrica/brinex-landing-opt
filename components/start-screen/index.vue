@@ -1,9 +1,14 @@
 <template>
     <div class="start-screen">
-        <PageHeader class="start-screen__header"></PageHeader>
-        <div class="start-screen__content container">
-            <p class="start-screen__title">Бринэкс — платформа для продавцов автотоваров</p>
-            <a class="start-screen__link button" href="">Начать работу</a>
+        <div class="start-screen__inner">
+            <PageHeader class="start-screen__header"></PageHeader>
+
+            <div class="start-screen__content container">
+                <p class="start-screen__title">Бринэкс — платформа для продавцов автотоваров</p>
+                <a class="start-screen__link button button--large" href="">
+                    <span>Начать работу</span>
+                </a>
+            </div>
         </div>
         <video class="start-screen__back" src="../../assets/video/video_background_opt_first_screen_no_interface_brinex.mp4" muted autoplay loop></video>
     </div>
@@ -23,16 +28,46 @@ export default {
 <style lang="scss">
     .start-screen {
         position: relative;
+        max-height: 708px;
+        overflow: hidden;
+
+        &::after {
+            content: '';
+            position: absolute;
+            top: calc(100% - 2.2vw);
+            z-index: 1;
+            width: 100%;
+            height: 6vw;
+            transform: skewY(-2.5deg);
+            background-color: $white
+        }
+    }
+
+    .start-screen__inner {
+        position: relative;
+        z-index: 1;
     }
 
     .start-screen__header {
-        position: relative;
-        z-index: 1;
+
     }
 
     .start-screen__content {
-        position: relative;
-        z-index: 1;
+        display: flex;
+        width: 100%;
+        justify-content: space-between;
+        padding: 210px 30px 110px 36px;
+    }
+
+    .start-screen__title {
+        max-width: 50%;
+        font-size: 67px;
+        line-height: 75px;
+        color: $white;
+    }
+
+    .start-screen__link {
+        align-self: flex-end;
     }
 
     .start-screen__back {

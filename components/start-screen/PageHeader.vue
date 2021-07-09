@@ -1,17 +1,20 @@
 <template>
-    <div class="header">
+    <div class="header" ref="header">
         <header class="header__inner container">
-            <img class="header__logo" src="../../assets/img/brinex_logo_full.svg" width="116" alt="Логотип компании Бринекс" />
+            <img class="header__logo" src="../../assets/img/brinex_logo_full.svg" width="116"
+                 alt="Логотип компании Бринекс"/>
             <nav class="header__nav menu">
                 <a class="menu__item" href="">
-                    <icon class="menu__icon" name="Catalog" />
+                    <icon class="menu__icon" name="Catalog"/>
                     Каталог товаров и услуг</a>
                 <a class="menu__item" href="tel:88002509780">
-                    <icon class="menu__icon" name="Phone" />
+                    <icon class="menu__icon" name="Phone"/>
                     8 800 250-97-80</a>
                 <div class="menu__item menu__item--submenu">
-                    <span class="menu__item-text">Оптовым клиентам</span>
-                    <icon class="menu__icon" name="Arrow" />
+                    <p class="menu__item-block">
+                        <span class="menu__item-text">Оптовым клиентам</span>
+                        <icon class="menu__icon" name="Arrow"/>
+                    </p>
                     <ul class="menu__submenu submenu">
                         <li class="submenu__item">
                             <a class="submenu__link" href="">О портале</a>
@@ -46,7 +49,18 @@
 
 <script>
 export default {
-name: "PageHeader"
+    name: "PageHeader",
+
+    mounted() {
+        console.log(this.$refs)
+        window.addEventListener('scroll', this.onScroll);
+    },
+
+    methods: {
+        onScroll() {
+            this.$refs[ 'header' ].classList.add('header--sticky');
+        },
+    },
 }
 </script>
 
@@ -63,6 +77,13 @@ name: "PageHeader"
             height: 100%;
             background: linear-gradient(180deg, #060505 37.11%, rgba(5, 5, 5, 0) 100%);
             opacity: 0.8;
+        }
+
+        &--sticky {
+            position: fixed;
+            top: 0;
+            right: 0;
+            left: 0;
         }
     }
 
@@ -95,6 +116,10 @@ name: "PageHeader"
             margin-right: auto;
         }
 
+        &:last-child {
+            margin-right: 0;
+        }
+
         &--submenu {
             position: relative;
             cursor: pointer;
@@ -105,43 +130,55 @@ name: "PageHeader"
             }
 
             &:hover {
+                cursor: auto;
+
                 .menu__submenu {
-                    display: block;
+                    opacity: 1;
+                    pointer-events: auto;
+                }
+
+                .menu__item-block {
+                    opacity: 1;
+                }
+
+                .menu__icon {
+                    transform: rotate(180deg);
                 }
             }
         }
     }
 
-    .menu__item-text {
+    .menu__item-block {
+        position: relative;
+        z-index: 1;
+        margin: 0;
         opacity: 0.5;
+    }
+
+    .menu__item-text {
+
     }
 
     .menu__icon {
         margin-right: 7px;
+        transition: all 0.2s ease;
     }
 
     .menu__submenu {
-        display: none;
         position: absolute;
-        top: 24px;
+        top: -7px;
         right: -8px;
         left: -8px;
-        //opacity: 0;
-        //pointer-events: none;
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 0.2s ease;
     }
 
     .submenu {
-        //display: flex;
-        //flex-direction: column;
-        padding: 0 0 5px;
+        padding: 31px 0 5px;
         list-style: none;
         background-color: transparentize($black, 0.3);
         border-radius: 8px;
-
-        //&:hover {
-        //    opacity: 1;
-        //    pointer-events: auto;
-        //}
 
         &::before {
             content: '';
@@ -164,7 +201,7 @@ name: "PageHeader"
 
         &:hover {
             background-color: $black;
-            color: $light-green;
+            color: $primaryConversed;
         }
     }
 
