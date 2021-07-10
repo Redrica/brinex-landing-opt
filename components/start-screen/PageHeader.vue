@@ -1,8 +1,10 @@
 <template>
     <div class="header" ref="header">
         <header class="header__inner container">
-            <img class="header__logo" src="../../assets/img/brinex_logo_full.svg" width="116"
+            <img class="header__logo header__logo--full" src="../../assets/img/brinex_logo_full.svg" width="116"
                  alt="Логотип компании Бринекс"/>
+          <img class="header__logo header__logo--small" src="../../assets/img/brinex_logo_simple.svg" width="66"
+               alt="Логотип компании Бринекс"/>
             <nav class="header__nav menu">
                 <a class="menu__item" href="">
                     <icon class="menu__icon" name="Catalog"/>
@@ -50,6 +52,12 @@
 <script>
 export default {
     name: "PageHeader",
+  props: {
+    scrollLimit: {
+      type: Number,
+      default: 0,
+    }
+  },
 
     mounted() {
         console.log(this.$refs)
@@ -66,7 +74,10 @@ export default {
 
 <style lang="scss">
     .header {
-        position: relative;
+      position: fixed;
+      top: 0;
+      right: 0;
+      left: 0;
 
         &::before {
             content: '';
@@ -80,10 +91,14 @@ export default {
         }
 
         &--sticky {
-            position: fixed;
-            top: 0;
-            right: 0;
-            left: 0;
+          & .header__logo--full {
+            display: none;
+          }
+
+          & .header__logo--small {
+            display: block;
+          }
+
         }
     }
 
@@ -96,6 +111,10 @@ export default {
 
     .header__logo {
         margin-right: 45px;
+
+      &--small {
+        display: none;
+      }
     }
 
     .header__nav {
@@ -120,9 +139,19 @@ export default {
             margin-right: 0;
         }
 
+      &:hover {
+        color: $primaryConversed;
+
+        & .menu__icon path,
+        & .menu__icon rect {
+          fill: $primaryConversed;
+        }
+      }
+
         &--submenu {
             position: relative;
             cursor: pointer;
+
 
             & .menu__icon {
                 margin-top: 5px;
@@ -130,6 +159,7 @@ export default {
             }
 
             &:hover {
+              color: $white;
                 cursor: auto;
 
                 .menu__submenu {

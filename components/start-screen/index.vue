@@ -1,7 +1,7 @@
 <template>
     <div class="start-screen">
         <div class="start-screen__inner">
-            <PageHeader class="start-screen__header"></PageHeader>
+            <PageHeader class="start-screen__header" :scroll-limit="scrollLimit"></PageHeader>
 
             <div class="start-screen__content container">
                 <p class="start-screen__title">Бринэкс — платформа для продавцов автотоваров</p>
@@ -21,7 +21,25 @@ export default {
     name: "index",
     components: {
         PageHeader,
-    }
+    },
+  data() {
+      return {
+        scrollLimit: 0,
+      }
+  },
+
+  computed: {
+
+  },
+
+  methods: {
+      getScrollLimit() {
+
+      }
+  },
+  mounted: {
+
+  }
 }
 </script>
 
