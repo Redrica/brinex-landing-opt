@@ -45,6 +45,7 @@ img {
 
 .button {
     position: relative;
+    display: block;
     color: $white;
     border-radius: 6px;
     border: 2px solid $white;
@@ -72,6 +73,22 @@ img {
         font-weight: 700;
         border-radius: 8px;
         border-color: $primary;
+    }
+
+    &--simple {
+        padding: 24px 107px 28px;
+        font-size: 28px;
+        line-height: 135%;
+        background-color: transparent;
+
+        &::before {
+            content: none;
+        }
+
+        &:hover {
+            background-color: $primary;
+            border: 2px solid transparentize($white, 0.5);
+        }
     }
 
     & span {

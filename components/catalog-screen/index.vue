@@ -18,7 +18,7 @@
         <div class="slider">
             <div class="slider__item product-card" v-for="item in sliderCards">
                 <div class="product-card__img-wrapper">
-                    <img :src="`/img/${item.src}`" alt="">
+                    <img :src="`/brinex-landing-opt/img/${item.src}`" alt="">
                 </div>
                 <p class="product-card__text">
                     {{ item.name }}
