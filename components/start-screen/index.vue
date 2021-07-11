@@ -1,5 +1,5 @@
 <template>
-    <div class="start-screen">
+    <div class="start-screen" ref="screen">
         <div class="start-screen__inner">
             <PageHeader class="start-screen__header" :scroll-limit="scrollLimit"></PageHeader>
 
@@ -10,15 +10,17 @@
                 </a>
             </div>
         </div>
-        <video class="start-screen__back" src="../../assets/video/video_background_opt_first_screen_no_interface_brinex.mp4" muted autoplay loop></video>
+        <video class="start-screen__back" src="~/assets/video/video_background_opt_first_screen_no_interface_brinex.mp4" muted autoplay loop></video>
     </div>
 </template>
 
 <script>
 import PageHeader from '@/components/start-screen/PageHeader';
 
+const OFFSET = 55;
+
 export default {
-    name: "index",
+    name: "StartScreen",
     components: {
         PageHeader,
     },
@@ -34,11 +36,11 @@ export default {
 
   methods: {
       getScrollLimit() {
-
+          return this.$refs[ 'screen' ].clientHeight - OFFSET;
       }
   },
-  mounted: {
-
+  mounted() {
+        this.scrollLimit = this.getScrollLimit();
   }
 }
 </script>
@@ -79,6 +81,7 @@ export default {
 
     .start-screen__title {
         max-width: 50%;
+        font-family: $gorizont;
         font-size: 67px;
         line-height: 75px;
         color: $white;
@@ -86,6 +89,9 @@ export default {
 
     .start-screen__link {
         align-self: flex-end;
+        &:hover {
+            transform: scale(1.04);
+        }
     }
 
     .start-screen__back {

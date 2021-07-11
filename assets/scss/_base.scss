@@ -11,11 +11,17 @@ html {
 html,
 body {
     height: 100%;
-    //font-family: 'Open Sans', 'Arial', 'Helvetica Neue', sans-serif; // 'Helvetica Neue' для отображения знака рубля на iOS 13
 }
 
 body {
     min-width: 415px;
+    font-family: 'ALS Sirius', 'Trebuchet MS', sans-serif;
+    color: $black;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
 }
 
 .container {
@@ -44,6 +50,7 @@ body {
     border: 2px solid $white;
     text-decoration: none;
     background-color: $primary;
+    transition: all 0.2s ease;
 
     &::before {
         @include primary-gradient;
@@ -76,5 +83,16 @@ body {
         &::before {
             opacity: 1;
         }
+    }
+}
+
+.part-title {
+    font-family: 'ALS Gorizont', 'Trebuchet MS', sans-serif;
+    font-size: 48px;
+    line-height: 110%;
+    text-align: center;
+
+    &--accent {
+        color: $primaryDarker;
     }
 }
