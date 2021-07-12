@@ -12,8 +12,8 @@ import Info from '~/assets/svg/info.svg?inline';
 import InfoSolid from '~/assets/svg/info-solid.svg?inline';
 import Store from '~/assets/svg/store.svg?inline';
 import StoreSolid from '~/assets/svg/store-solid.svg?inline';
-import ThereBackArrows from '~/assets/svg/there-back-arrows.svg?inline';
-import ThereBackArrowsSolid from '~/assets/svg/there-back-arrows-solid.svg?inline';
+import Return from '~/assets/svg/return.svg?inline';
+import ReturnSolid from '~/assets/svg/return-solid.svg?inline';
 import Percent from '~/assets/svg/percent.svg?inline';
 import PercentSolid from '~/assets/svg/percent-solid.svg?inline';
 import CheckIcon from '~/assets/svg/check-icon.svg?inline';
@@ -33,8 +33,8 @@ export default {
       InfoSolid,
       Store,
       StoreSolid,
-      ThereBackArrows,
-      ThereBackArrowsSolid,
+      Return,
+      ReturnSolid,
       Percent,
       PercentSolid,
       CheckIcon,
