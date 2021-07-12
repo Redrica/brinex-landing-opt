@@ -26,13 +26,13 @@
             </div>
         </div>
 
-        <button-arrow class="catalog-screen__button" />
+        <button-arrow class="catalog-screen__button" button-text="Весь каталог" />
     </section>
 </template>
 
 <script>
 import { catalogLinks, sliderCards } from '@/helpers/catalog-links.js';
-import ButtonArrow from '@/components/catalog-screen/ButtonArrow';
+import ButtonArrow from '@/components/common/ButtonArrow';
 
 export default {
     name: 'CatalogScreen',

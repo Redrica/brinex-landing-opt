@@ -1,4 +1,6 @@
 <template>
+<!--    TODO: вынести из экрана!-->
+<!--    TODO: проверять положение на странице при перезагрузке, чтобы назначать класс, если прокручено-->
     <div class="header" ref="header">
         <header class="header__inner container">
             <img class="header__logo header__logo--full" src="../../assets/img/brinex_logo_full.svg" width="116"

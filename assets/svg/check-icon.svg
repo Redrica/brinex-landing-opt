@@ -1,0 +1,10 @@
+<svg width="63" height="59" viewBox="0 0 63 59" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M25.6427 58.569L62.4997 4.4209L56 0.5L24.7219 45.9764L5 27L0 32L25.6427 58.569Z" fill="white"/>
+<path d="M25.6427 58.569L62.4997 4.4209L56 0.5L24.7219 45.9764L5 27L0 32L25.6427 58.569Z" fill="url(#checkIcon)"/>
+<defs>
+<radialGradient id="checkIcon" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(5.97756 2.56206) rotate(43.5235) scale(88.3333 103.371)">
+<stop offset="0.291833" stop-color="#00FF66" stop-opacity="0"/>
+<stop offset="1" stop-color="#00FF66"/>
+</radialGradient>
+</defs>
+</svg>

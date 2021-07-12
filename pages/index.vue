@@ -6,6 +6,7 @@
         <StartScreen />
         <CatalogScreen />
         <OptionsScreen />
+        <PortalScreen />
     </div>
 </template>
 
@@ -13,13 +14,15 @@
 import StartScreen from '~/components/start-screen';
 import CatalogScreen from '~/components/catalog-screen';
 import OptionsScreen from '~/components/options-screen';
+import PortalScreen from '~/components/portal-screen/index';
 
 export default {
     name: 'MainPage',
     components: {
-        OptionsScreen,
         StartScreen,
         CatalogScreen,
+        OptionsScreen,
+        PortalScreen,
     },
     data() {
         return {
