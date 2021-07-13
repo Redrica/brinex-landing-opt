@@ -17,10 +17,10 @@ export const portalFeatures = [
     },
     {
         title: 'Возврат товара онлайн',
-        img: 'there-back-arrows.svg',
-        imgSolid: 'there-back-arrows-solid.svg',
-        iconName: 'ThereBackArrows',
-        iconNameSolid: 'ThereBackArrowsSolid',
+        img: 'return.svg',
+        imgSolid: 'return-solid.svg',
+        iconName: 'Return',
+        iconNameSolid: 'ReturnSolid',
         video: 'somestring',
     },
     {
