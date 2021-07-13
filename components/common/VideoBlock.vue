@@ -22,7 +22,7 @@
 
 <script>
 export default {
-    name: 'Video',
+    name: 'VideoBlock',
     data() {
       return {
           videoOn: false,

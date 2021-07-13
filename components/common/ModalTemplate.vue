@@ -1,36 +1,28 @@
 <template>
-<!--    <transition name="simple-modal">-->
-        <div class="simple-modal">
+<!--    <transition name="modal-template">-->
+        <div class="modal-template">
 
-            <div class="simple-modal-backdrop" @click="closeModal">
+            <div class="modal-template__backdrop" @click="closeModal">
 
-                <transition name="container">
-                    <div class="simple-modal-container" v-if="isOpened">
+                <transition :name="transitionName">
+                    <div class="modal-template__container" v-if="isOpened">
 
-                        <div class="simple-modal-content"
+                        <div class="modal-template__content"
                              @click.stop
-                             :class="{ 'simple-modal-scrollable': scrollable }">
+                             :class="{ 'modal-template--scrollable': scrollable,
+                             'modal-portal': modalName === 'modalPortal'}">
 
-                            <header class="simple-modal-header">
-                                <slot name="header">
-                                    Modal title
-                                </slot>
+                            <button class="modal-template__close" type="button" @click="closeModal">
+                                <span class="visually-hidden">Закрыть окно</span>
+                            </button>
+
+                            <header class="modal-template__header">
+                                <slot name="header"/>
                             </header>
 
-                            <section class="simple-modal-body">
-                                <slot name="body">
-                                    Modal body
-                                </slot>
+                            <section class="modal-template-body">
+                                <slot name="body"/>
                             </section>
-
-                            <footer class="simple-modal-footer">
-
-                                <slot name="footer"/>
-
-                                <button type="button" @click="closeModal">
-                                    Close
-                                </button>
-                            </footer>
                         </div>
                     </div>
                 </transition>
@@ -44,6 +36,10 @@
 export default {
     name: 'ModalTemplate',
     props: {
+        modalName: {
+            type: String,
+            default: '',
+        },
         isOpened: {
             type: Boolean,
             default: false,
@@ -52,6 +48,12 @@ export default {
             type: Boolean,
             default: false,
         }
+    },
+
+    computed: {
+        transitionName() {
+
+        },
     },
 
     methods: {
@@ -83,77 +85,112 @@ export default {
 </script>
 
 <style lang="scss">
-    .simple-modal {
-        &-backdrop {
-            position: fixed;
-            top: 0;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(104, 197, 160, 0.7);
-            transition: opacity 0.3s ease;
-            z-index: 9999;
-        }
+    .modal-template__backdrop {
+        position: fixed;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba($black, 0.3);
+        transition: opacity 0.3s ease;
+        z-index: 9999;
+    }
 
-        &-container {
-            position: fixed;
-            top: 0;
-            right: 0;
-            left: 0;
-            bottom: 0;
-        }
+    .modal-template--scrollable {
+        // надо не высоту фиксить, а привязываться к высоте экрана, тк мобилки
+        //height: 900px;
+        //overflow-y: scroll;
+    }
 
-        &-content {
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            width: 100%;
-            max-width: 500px;
-            margin: 1.75rem auto;
-            padding: 20px 30px;
-            border-radius: 5px;
-            color: #000;
-            background-color: #fff;
-            transform: translate(0, 0);
-            transition: all 0.3s ease;
-            box-sizing: border-box;
-        }
+    .modal-template__container {
+        position: fixed;
+        top: 0;
+        right: 0;
+        left: 0;
+        bottom: 0;
+    }
 
-        &-header {
-            padding-bottom: 16px;
-            font-size: 25px;
-            text-align: center;
-        }
 
-        &-footer {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            height: 80px;
-            text-align: center;
-        }
 
-        &-scrollable {
-            height: 500px;
-            overflow-y: scroll;
+    .modal-template__content {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        width: 100%;
+        padding: 20px 30px;
+        transform: translate(-50%, -50%);
+        transition: all 0.3s ease;
+
+        &.modal-portal {
+            position: relative;
+            max-width: 1280px;
+            padding: 0 20px 60px;
+
+            &::before {
+                content: '';
+                position: absolute;
+                top: 0;
+                right: 0;
+                bottom: 0;
+                left: 0;
+                background-image: $modalGradient;
+                opacity: 0.95;
+            }
         }
     }
 
-    //.simple-modal-enter,
-    //.simple-modal-leave-to {
-    //    opacity: 0;
-    //}
-    //
-    //.simple-modal-enter-active,
-    //.simple-modal-leave-active {
-    //    transition: opacity 0.2s ease;
-    //}
+    .modal-template__close {
+        position: absolute;
+        top: 42px;
+        right: 24px;
+        z-index: 5;
+        width: 32px;
+        height: 32px;
+        padding: 0;
+        background: none;
+        border: none;
+        cursor: pointer;
+
+        &::before,
+        &::after {
+            content: '';
+            position: absolute;
+            display: block;
+            top: 0;
+            width: 45px;
+            height: 3px;
+            background-color: $white;
+        }
+
+        &::before {
+            left: 0;
+            transform:  rotate(45deg) translate(0, -50%);
+            transform-origin: top left;
+        }
+
+        &::after {
+            right: 0;
+            transform: rotate(-45deg) translate(0, -50%);
+            transform-origin: top right;
+        }
+    }
+
+    .modal-template__header {
+        z-index: 1;
+        padding: 35px 50px 35px 0;
+        font-family: 'ALS Gorizont', 'Times New Roman', sans-serif;
+        font-size: 48px;
+        line-height: 110%;
+        color: $white;
+    }
 
     .container-enter,
     .container-leave {
-        //opacity: 0;
         transform: scale(0);
     }
 

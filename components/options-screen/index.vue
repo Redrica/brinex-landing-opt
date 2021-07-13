@@ -1,91 +1,89 @@
 <template>
     <section class="options-screen container">
-        <h2 class="options-screen__title part-title" @click="runAnimation">
+        <h2 class="options-screen__title part-title" ref="screen-title" @click="runAnimation">
             <span class="part-title--accent">Даем бонусы и скидки, </span>ценим долгосрочное партнерство
         </h2>
-
-        <transition-group class="options-list"
-                          name="list"
-                          tag="ul"
-                          @after-enter="enterAnimation">
+        <ul class="options-list">
             <li class="options-list__item"
+                ref="list-item"
                 v-for="(option, i) in optionsList"
-                :key="i" v-if="i < index">
-<!--                <template >-->
-                    <div class="options-list__title-wrapper">
-                        <p class="options-list__title" v-html="option.title"></p>
-                        <p class="options-list__subtitle">{{ option.condition }}</p>
-                    </div>
+                :key="i">
+                <div class="options-list__title-wrapper">
+                    <p class="options-list__title" v-html="option.title"></p>
+                    <p class="options-list__subtitle">{{ option.condition }}</p>
+                </div>
 
-                    <ul class="options-list__list">
-                        <li class="options-list__list-item" v-for="item in option.options">
-                            <icon class="options-list__list-icon" name="ok-sign"></icon>
+                <ul class="options-list__list">
+                    <li class="options-list__list-item" v-for="item in option.options">
+                        <icon class="options-list__list-icon" name="ok-sign"></icon>
+                        {{ item }}
+                    </li>
+                    <template v-if="option.extraOptions.length">
+                        <li class="options-list__list-item options-list__list-item--extra"
+                            v-for="item in option.extraOptions">
+                            <icon class="options-list__list-icon" name="plus"></icon>
                             {{ item }}
                         </li>
-                        <template v-if="option.extraOptions.length">
-                            <li class="options-list__list-item options-list__list-item--extra"
-                                v-for="item in option.extraOptions">
-                                <icon class="options-list__list-icon" name="plus"></icon>
-                                {{ item }}
-                            </li>
-                        </template>
-                    </ul>
-<!--                </template>-->
+                    </template>
+                </ul>
             </li>
-        </transition-group>
+        </ul>
     </section>
 
 </template>
 
 <script>
-import { optionsList } from '@/helpers/oprions-list';
+import { optionsList } from '@/helpers/options-list';
+const EXTRA_SPACE = 500;
 
 export default {
     name: 'OptionsScreen',
     data() {
         return {
             optionsList: optionsList,
-            showList: false,
-            index: 0,
+            animaStartY: 0,
         }
     },
     methods: {
         runAnimation() {
-            this.index += ({ 0: 1, [this.optionsList.length]: -1})[this.index];
-        },
+            const offset = window.innerHeight + window.pageYOffset - EXTRA_SPACE;
 
-        enterAnimation() {
-            this.index = Math.min(this.optionsList.length, this.index + 1);
-        },
+            if (offset >= this.animaStartY) {
+                this.$refs['list-item'].forEach((it) => {
+                    it.classList.add('animate');
+                });
+                window.removeEventListener('scroll', this.runAnimation);
+            }
+        }
+    },
+
+    mounted() {
+        // TODO: проверять при загрузке, может там уже отскроллено до нужного момента
+        this.animaStartY = this.$refs['screen-title'].getBoundingClientRect().y;
+        window.addEventListener('scroll', this.runAnimation);
     },
 }
 </script>
 
-<!--new Vue({-->
-<!--el: '#app',-->
-<!--data: {-->
-<!--items: [...Array(10)].map((n, i) => i + 1),-->
-<!--idx: 0,-->
-<!--},-->
-<!--mounted() {-->
-<!--this.run();-->
-<!--},-->
-<!--methods: {-->
-<!--run() {-->
-<!--this.idx += ({ 0: 1, [this.items.length]: -1 })[this.idx];-->
-<!--},-->
-<!--enter() {-->
-<!--this.idx = Math.min(this.items.length, this.idx + 1);-->
-<!--},-->
-<!--leave() {-->
-<!--this.idx = Math.max(0, this.idx - 1);-->
-<!--},-->
-<!--},-->
-<!--});-->
 
 <style lang="scss">
+    @keyframes appearance {
+        0% {
+
+        }
+        50% {
+            transform: translateY(300px);
+        }
+        100% {
+            transform: translateY(0);
+        }
+
+    }
+
     .options-screen {
-        padding: 70px 56px;
+        position: relative;
+        z-index: 5;
+        padding: 70px 56px 20px;
 
     }
 
@@ -97,6 +95,7 @@ export default {
     .options-list {
         display: flex;
         align-items: flex-start;
+        margin: 0;
         padding: 0;
         list-style: none;
     }
@@ -109,9 +108,17 @@ export default {
         background-color: $almostWhite;
         border-radius: 8px;
         overflow: hidden;
+        transform: translate(0, 300px);
+        opacity: 0;
+
+        &.animate {
+            opacity: 1;
+            transform: translate(0, 0);
+            transition: all 0.5s;
+        }
 
         &:first-child {
-            //animation-delay: 0s;
+            transition-delay: 0s;
 
             & .options-list__title-wrapper {
                 background-image: linear-gradient(269.68deg, #95F9BF 0.27%, #C1FFE8 99.8%);
@@ -119,7 +126,7 @@ export default {
         }
 
         &:nth-child(2) {
-            //animation-delay: 0.2s;
+            transition-delay: 0.2s;
 
             & .options-list__title-wrapper {
                 background-image: linear-gradient(269.68deg, #63F190 0.27%, #91F8BA 99.8%);
@@ -127,7 +134,7 @@ export default {
         }
 
         &:nth-child(3) {
-            //animation-delay: 0.4s;
+            transition-delay: 0.4s;
 
             & .options-list__title-wrapper {
                 background-image: linear-gradient(269.68deg, #33E962 0.27%, #60F08D 99.8%);
@@ -135,7 +142,7 @@ export default {
         }
 
         &:last-child {
-            //animation-delay: 0.6s;
+            transition-delay: 0.6s;
             margin-right: 0;
 
             & .options-list__title-wrapper {
@@ -153,6 +160,7 @@ export default {
     .options-list__title {
         position: relative;
         z-index: 1;
+        margin-top: 3px;
         margin-bottom: 12px;
         font-size: 34px;
         line-height: 96%;
@@ -199,37 +207,5 @@ export default {
         & path {
             fill: $primaryDarker;
         }
-    }
-
-    //.list-enter-active, .list-leave-active {
-    //    transition: all 1s;
-    //}
-    //
-    //.list-enter, .list-leave-to {
-    //    opacity: 0;
-    //    transform: translateY(30px);
-    //}
-
-    @keyframes show {
-        0% {
-            transform: translateY(200px);
-        }
-        50% {
-            transform: translateY(300px);
-        }
-        100% {
-            transform: translateY(0);
-        }
-
-    }
-    .list-enter-active,
-    .list-leave-active {
-        //transition: transform 2s 1s;
-        animation: show 1s;
-    }
-
-    .list-enter,
-    .list-leave-to {
-        //transform: translateY(300px);
     }
 </style>

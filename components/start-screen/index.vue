@@ -3,7 +3,7 @@
         <div class="start-screen__inner">
             <div class="start-screen__content container">
                 <p class="start-screen__title">Бринэкс — платформа для продавцов автотоваров</p>
-                <a class="start-screen__link button button--large" href="">
+                <a class="start-screen__link button button--large" href="" ref="main-link">
                     <span>Начать работу</span>
                 </a>
             </div>
@@ -29,16 +29,31 @@ export default {
 
         getScrollLimit() {
             return this.$refs['start-screen'].clientHeight - OFFSET;
-        }
+        },
+
+        setStickyButton() {
+            if (window.pageYOffset >= OFFSET) {
+                this.$refs['main-link'].classList.add('start-screen__link--sticky');
+            } else if (window.pageYOffset < OFFSET) {
+                this.$refs['main-link'].classList.remove('start-screen__link--sticky');
+            }
+        },
     },
 
     mounted() {
         this.setScrollLimit(this.getScrollLimit());
+        window.addEventListener('scroll', this.setStickyButton);
     }
 }
 </script>
 
 <style lang="scss">
+    @keyframes move {
+        0% {
+
+        }
+
+    }
     .start-screen {
         position: relative;
         max-height: 708px;
@@ -61,10 +76,6 @@ export default {
         z-index: 1;
     }
 
-    .start-screen__header {
-
-    }
-
     .start-screen__content {
         display: flex;
         width: 100%;
@@ -74,6 +85,7 @@ export default {
 
     .start-screen__title {
         max-width: 50%;
+        margin: 0;
         font-family: $gorizont;
         font-size: 67px;
         line-height: 75px;
@@ -82,8 +94,18 @@ export default {
 
     .start-screen__link {
         align-self: flex-end;
+        right: 0;
+        bottom: 0;
+
         &:hover {
             transform: scale(1.04);
+        }
+
+        &--sticky {
+            position: fixed;
+            z-index: 50;
+            right: 25px;
+            bottom: 25px;
         }
     }
 

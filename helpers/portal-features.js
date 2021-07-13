@@ -8,7 +8,7 @@ export const portalFeatures = [
         video: 'somestring',
     },
     {
-        title: 'Доступ к&nbsp;остаткам складов ',
+        title: 'Доступ к остаткам складов',
         img: 'store.svg',
         imgSolid: 'store-solid.svg',
         iconName: 'Store',
@@ -24,7 +24,7 @@ export const portalFeatures = [
         video: 'somestring',
     },
     {
-        title: 'Автоматический расчет лимитов и&nbsp;бонусов',
+        title: 'Автоматический расчет лимитов и бонусов',
         img: 'percent.svg',
         imgSolid: 'percent-solid.svg',
         iconName: 'Percent',

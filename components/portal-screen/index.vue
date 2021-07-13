@@ -6,35 +6,16 @@
 
             <ModalTemplate
                 v-show="showModal"
-                :scrollable="true"
+                modal-name="modalPortal"
                 :is-opened="showModal"
-                @close="openModal">
+                @close="handleModal">
 
                 <template #header>
-                    Наши правила по работе
+                    {{ modalData.title }}
                 </template>
 
                 <template #body>
-                    <p>
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequuntur debitis deserunt
-                        doloremque ducimus eum facilis iure labore laborum, odio officia optio pariatur, placeat
-                        quos rem, rerum sapiente sed temporibus velit.
-                    </p>
-                    <p>
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequuntur debitis deserunt
-                        doloremque ducimus eum facilis iure labore laborum, odio officia optio pariatur, placeat
-                        quos rem, rerum sapiente sed temporibus velit.
-                    </p>
-                    <p>
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequuntur debitis deserunt
-                        doloremque ducimus eum facilis iure labore laborum, odio officia optio pariatur, placeat
-                        quos rem, rerum sapiente sed temporibus velit.
-                    </p>
-                    <p>
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequuntur debitis deserunt
-                        doloremque ducimus eum facilis iure labore laborum, odio officia optio pariatur, placeat
-                        quos rem, rerum sapiente sed temporibus velit.
-                    </p>
+                    <VideoBlock :src="modalData.videoSrc"></VideoBlock>
                 </template>
             </ModalTemplate>
 
@@ -45,7 +26,7 @@
 
             <ul class="portal-screen__list">
                 <li class="portal-screen__item" v-for="item in portalFeatures">
-                    <a class="portal-screen__link" href="" @click.prevent="openModal">
+                    <a class="portal-screen__link" href="" @click.prevent="handleModal(item)">
                         <icon class="portal-screen__icon portal-screen__icon--static" :name="item.iconName"></icon>
                         <icon class="portal-screen__icon portal-screen__icon--hover" :name="item.iconNameSolid"></icon>
                         <span v-html="item.title"></span>
@@ -55,7 +36,7 @@
 
             <ButtonArrow class="portal-screen__button" button-text="Смотреть все" green-button />
 
-            <Video />
+            <VideoBlock />
 
             <p class="portal-screen__text">О портале для оптовых клиентов за 2 минуты</p>
         </div>
@@ -66,13 +47,13 @@
 import { portalFeatures } from '@/helpers/portal-features';
 import ButtonArrow from '@/components/common/ButtonArrow';
 import ModalTemplate from '@/components/common/ModalTemplate';
-import Video from '@/components/common/Video';
+import VideoBlock from '@/components/common/VideoBlock';
 
 export default {
     name: 'PortalScreen',
 
     components: {
-        Video,
+        VideoBlock,
         ButtonArrow,
         ModalTemplate,
     },
@@ -81,12 +62,19 @@ export default {
         return {
             portalFeatures: portalFeatures,
             showModal: false,
+            modalData: {},
         }
     },
 
     methods: {
-        openModal() {
+        handleModal(item) {
             this.showModal = !this.showModal;
+            if (this.showModal) {
+                this.modalData = {
+                    title: item.title,
+                    videoSrc: item.video,
+                }
+            }
         },
     },
 }

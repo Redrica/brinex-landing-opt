@@ -1,6 +1,4 @@
 <template>
-    <!--    TODO: вынести из экрана!-->
-    <!--    TODO: проверять положение на странице при перезагрузке, чтобы назначать класс, если прокручено-->
     <div class="header" ref="header">
         <header class="header__inner container">
             <img class="header__logo header__logo--full" src="../assets/img/brinex_logo_full.svg" width="116"
@@ -57,7 +55,6 @@ export default {
     methods: {
         // debounce!
         onScroll() {
-
             if (this.scrollLimit && (window.pageYOffset >= this.scrollLimit)) {
                 this.$refs[ 'header' ].classList.add('header--sticky');
             } else if (window.pageYOffset < this.scrollLimit) {
