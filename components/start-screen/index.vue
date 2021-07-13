@@ -1,8 +1,6 @@
 <template>
-    <div class="start-screen" ref="screen">
+    <div class="start-screen" ref="start-screen">
         <div class="start-screen__inner">
-            <PageHeader class="start-screen__header" :scroll-limit="scrollLimit"></PageHeader>
-
             <div class="start-screen__content container">
                 <p class="start-screen__title">Бринэкс — платформа для продавцов автотоваров</p>
                 <a class="start-screen__link button button--large" href="">
@@ -15,7 +13,8 @@
 </template>
 
 <script>
-import PageHeader from '@/components/start-screen/PageHeader';
+import PageHeader from '@/components/PageHeader';
+import { mapActions } from 'vuex';
 
 const OFFSET = 55;
 
@@ -24,24 +23,18 @@ export default {
     components: {
         PageHeader,
     },
-  data() {
-      return {
-        scrollLimit: 0,
-      }
-  },
 
-  computed: {
+    methods: {
+        ...mapActions(['setScrollLimit']),
 
-  },
+        getScrollLimit() {
+            return this.$refs['start-screen'].clientHeight - OFFSET;
+        }
+    },
 
-  methods: {
-      getScrollLimit() {
-          return this.$refs[ 'screen' ].clientHeight - OFFSET;
-      }
-  },
-  mounted() {
-        this.scrollLimit = this.getScrollLimit();
-  }
+    mounted() {
+        this.setScrollLimit(this.getScrollLimit());
+    }
 }
 </script>
 

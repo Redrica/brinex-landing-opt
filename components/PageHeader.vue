@@ -1,12 +1,12 @@
 <template>
-<!--    TODO: вынести из экрана!-->
-<!--    TODO: проверять положение на странице при перезагрузке, чтобы назначать класс, если прокручено-->
+    <!--    TODO: вынести из экрана!-->
+    <!--    TODO: проверять положение на странице при перезагрузке, чтобы назначать класс, если прокручено-->
     <div class="header" ref="header">
         <header class="header__inner container">
-            <img class="header__logo header__logo--full" src="../../assets/img/brinex_logo_full.svg" width="116"
+            <img class="header__logo header__logo--full" src="../assets/img/brinex_logo_full.svg" width="116"
                  alt="Логотип компании Бринекс"/>
-          <img class="header__logo header__logo--small" src="../../assets/img/brinex_logo_simple.svg" width="66"
-               alt="Логотип компании Бринекс"/>
+            <img class="header__logo header__logo--small" src="../assets/img/brinex_logo_simple.svg" width="66"
+                 alt="Логотип компании Бринекс"/>
             <nav class="header__nav menu">
                 <a class="menu__item" href="">
                     <icon class="menu__icon" name="Catalog"/>
@@ -20,26 +20,8 @@
                         <icon class="menu__icon" name="Arrow"/>
                     </p>
                     <ul class="menu__submenu submenu">
-                        <li class="submenu__item">
-                            <a class="submenu__link" href="">О портале</a>
-                        </li>
-                        <li class="submenu__item">
-                            <a class="submenu__link" href="">Доставка</a>
-                        </li>
-                        <li class="submenu__item">
-                            <a class="submenu__link" href="">Оплата и рассрочка</a>
-                        </li>
-                        <li class="submenu__item">
-                            <a class="submenu__link" href="">Наши клиенты</a>
-                        </li>
-                        <li class="submenu__item">
-                            <a class="submenu__link" href="">Поставщики</a>
-                        </li>
-                        <li class="submenu__item">
-                            <a class="submenu__link" href="">Аналитика</a>
-                        </li>
-                        <li class="submenu__item">
-                            <a class="submenu__link" href="">Обучение</a>
+                        <li class="submenu__item" v-for="link in menuLinks">
+                            <a class="submenu__link" :href="link.href">{{ link.name }}</a>
                         </li>
                     </ul>
                 </div>
@@ -52,39 +34,53 @@
 </template>
 
 <script>
+import { menuLinks } from '@/helpers/menu-links';
+import { mapState } from 'vuex';
+
 export default {
-    name: "PageHeader",
-  props: {
-    scrollLimit: {
-      type: Number,
-      default: 0,
-    }
-  },
+    name: 'PageHeader',
+    data() {
+        return {
+            menuLinks: menuLinks,
+        }
+    },
+
+    computed: {
+        ...mapState(['scrollLimit']),
+    },
 
     mounted() {
-        //console.log(this.$refs)
+        this.onScroll();
         window.addEventListener('scroll', this.onScroll);
     },
 
     methods: {
         // debounce!
         onScroll() {
-            if (this.scrollLimit && window.pageYOffset >= this.scrollLimit) {
+
+            if (this.scrollLimit && (window.pageYOffset >= this.scrollLimit)) {
                 this.$refs[ 'header' ].classList.add('header--sticky');
             } else if (window.pageYOffset < this.scrollLimit) {
                 this.$refs[ 'header' ].classList.remove('header--sticky');
             }
         },
     },
+
+    watch: {
+        scrollLimit() {
+            this.onScroll();
+        },
+    }
 }
 </script>
 
 <style lang="scss">
     .header {
-      position: fixed;
-      top: 0;
-      right: 0;
-      left: 0;
+        position: fixed;
+        top: 0;
+        right: 0;
+        left: 0;
+        z-index: 10;
 
         &::before {
             content: '';
@@ -100,6 +96,7 @@ export default {
         &--sticky {
             z-index: 50;
             background-color: $almostWhite;
+            box-shadow: 0 -10px 20px $black;
 
             &::before {
                 content: none;
@@ -163,9 +160,9 @@ export default {
     .header__logo {
         margin-right: 39px;
 
-      &--small {
-        display: none;
-      }
+        &--small {
+            display: none;
+        }
     }
 
     .header__nav {
@@ -232,10 +229,6 @@ export default {
         opacity: 0.5;
     }
 
-    .menu__item-text {
-
-    }
-
     .menu__icon {
         display: block;
         margin-right: 7px;
@@ -258,10 +251,12 @@ export default {
     }
 
     .submenu {
+        margin: 0;
         padding: 31px 0 5px;
         list-style: none;
         background-color: transparentize($black, 0.3);
         border-radius: 8px;
+        box-shadow: 0px 22.3363px 17.869px rgba(0, 0, 0, 0.0417275), 0px 12.5216px 10.0172px rgba(0, 0, 0, 0.035), 0px 6.6501px 5.32008px rgba(0, 0, 0, 0.0282725);
 
         &::before {
             content: '';
