@@ -20,7 +20,6 @@ import CheckIcon from '~/assets/svg/check-icon.svg?inline';
 import CheckIconSolid from '~/assets/svg/check-icon-solid.svg?inline';
 import ReArrow from '~/assets/svg/re-arrow.svg?inline';
 import ReArrowSolid from '~/assets/svg/re-arrow-solid.svg?inline';
-// import Play from '~/assets/svg/play.svg?inline';
 
 export default {
   name: 'Icon',
@@ -42,7 +41,6 @@ export default {
       CheckIconSolid,
       ReArrow,
       ReArrowSolid,
-      // Play,
   },
   props: {
     name: String,
