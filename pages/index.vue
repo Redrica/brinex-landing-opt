@@ -1,13 +1,14 @@
 <template>
-    <div>
-      <h1 class="visually-hidden">
-        brinex-landing-opt
-      </h1>
-        <StartScreen />
-        <CatalogScreen />
-        <OptionsScreen />
-        <PortalScreen />
-    </div>
+  <div>
+    <h1 class="visually-hidden">
+      brinex-landing-opt
+    </h1>
+    <StartScreen/>
+    <CatalogScreen/>
+    <OptionsScreen/>
+    <PortalScreen/>
+    <ReviewsScreen/>
+  </div>
 </template>
 
 <script>
@@ -15,23 +16,23 @@ import StartScreen from '~/components/start-screen';
 import CatalogScreen from '~/components/catalog-screen';
 import OptionsScreen from '~/components/options-screen';
 import PortalScreen from '~/components/portal-screen/index';
+import ReviewsScreen from '~/components/reviews-screen';
 
 export default {
-    name: 'MainPage',
-    components: {
-        StartScreen,
-        CatalogScreen,
-        OptionsScreen,
-        PortalScreen,
-    },
-    data() {
-        return {
-            showLazy: false,
-        }
-    },
-    methods: {
-
+  name: 'MainPage',
+  components: {
+    ReviewsScreen,
+    StartScreen,
+    CatalogScreen,
+    OptionsScreen,
+    PortalScreen,
+  },
+  data() {
+    return {
+      showLazy: false,
     }
+  },
+  methods: {}
 }
 </script>
 

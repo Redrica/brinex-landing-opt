@@ -1,62 +1,103 @@
 <template>
-    <section class="catalog-screen">
-        <h2 class="catalog-screen__title part-title">
-            <span class="part-title part-title--accent">Укомплектуем ваш склад. </span>Более 30 000 разных товаров
-        </h2>
+  <section class="catalog-screen">
+    <h2 class="catalog-screen__title part-title">
+      <span class="part-title part-title--accent">Укомплектуем ваш склад. </span>Более 30 000 разных товаров
+    </h2>
 
-        <div class="catalog-screen__links catalog-links">
-            <ul class="catalog-links__wrapper">
-                <li class="catalog-links__item"
-                    :class="`catalog-links__item--${item.name}`"
-                    v-for="item in catalogLinks"
-                >
-                    {{ getItemName(item) }}
-                </li>
-            </ul>
+    <div class="catalog-screen__links catalog-links">
+      <ul class="catalog-links__wrapper">
+        <li class="catalog-links__item"
+            :class="`catalog-links__item--${item.name}`"
+            v-for="item in catalogLinks"
+        >
+          {{ getItemName(item) }}
+        </li>
+      </ul>
+    </div>
+
+    <SwiperAbstraction class="catalog-screen__swiper" :swiper-options="swiperOptions" is-smooth-scrolling>
+      <template #slides>
+        <div class="swiper-slide slider__item product-card" v-for="item in sliderCards">
+          <div class="product-card__img-wrapper">
+            <img :src="`/brinex-landing-opt/img/${item.src}`" alt="">
+          </div>
+          <p class="product-card__text">
+            {{ item.name }}
+          </p>
         </div>
+      </template>
+    </SwiperAbstraction>
 
-        <div class="slider">
-            <div class="slider__item product-card" v-for="item in sliderCards">
-                <div class="product-card__img-wrapper">
-                    <img :src="`/brinex-landing-opt/img/${item.src}`" alt="">
-                </div>
-                <p class="product-card__text">
-                    {{ item.name }}
-                </p>
-            </div>
-        </div>
-
-        <button-arrow class="catalog-screen__button" button-text="Весь каталог" />
-    </section>
+    <button-arrow class="catalog-screen__button" button-text="Весь каталог"/>
+  </section>
 </template>
 
 <script>
 import { catalogLinks, sliderCards } from '@/helpers/catalog-links.js';
 import ButtonArrow from '@/components/common/ButtonArrow';
+import SwiperAbstraction from '~/components/common/SwiperAbstraction';
 
 export default {
-    name: 'CatalogScreen',
+  name: 'CatalogScreen',
 
-    components: {
-        ButtonArrow,
-    },
+  components: {
+    ButtonArrow,
+    SwiperAbstraction,
+  },
 
-    data() {
-        return {
-            catalogLinks: catalogLinks,
-            sliderCards: sliderCards,
-        }
-    },
-
-    methods: {
-        getItemName(item) {
-            if(!item.isLink) {
-                return item.title;
-            } else {
-                return item.title.replace('@', ` ${item.quantity} `);
-            }
+  data() {
+    return {
+      catalogLinks: catalogLinks,
+      sliderCards: sliderCards,
+      swiperOptions: {
+        autoplay: {
+          delay: 1,
         },
+        speed: 3000,
+        freeMode: true,
+        loop: true,
+        slidesPerView: 8,
+        centeredSlides: true,
+        spaceBetween: 12,
+        // pagination: {
+        //   el: '.swiper-pagination',
+        //   dynamicBullets: true
+        // },
+        // navigation: {
+        //   nextEl: '.swiper-button-next',
+        //   prevEl: '.swiper-button-prev',
+        // },
+        breakpoints: {
+          1024: {
+            slidesPerView: 8,
+            spaceBetween: 10
+          },
+          768: {
+            slidesPerView: 3,
+            spaceBetween: 10
+          },
+          640: {
+            slidesPerView: 2,
+            spaceBetween: 10
+          },
+          320: {
+            slidesPerView: 1,
+            spaceBetween: 10
+          }
+        }
+      }
     }
+  },
+
+  methods: {
+    getItemName(item) {
+      if (!item.isLink) {
+        return item.title;
+      } else {
+        return item.title.replace('@', ` ${ item.quantity } `);
+      }
+    },
+  }
 }
 </script>
 
@@ -80,18 +121,28 @@ export default {
         margin: 65px auto 70px;
     }
 
-//    slider mock
+    .catalog-screen__swiper {
+        position: relative;
 
-    .slider {
-        display: flex;
+        //&::before,
+        //&::after {
+        //    content: '';
+        //    position: absolute;
+        //    top: 0;
+        //    bottom: 0;
+        //    z-index: 10;
+        //    width: 70px;
+        //}
 
-        &__item {
-            margin-right: 15px;
-        }
-    }
-
-    .product-card {
-
+        //&::before {
+        //    left: 0;
+        //    background-image: linear-gradient(to right, $white 0, transparent 100%);
+        //}
+        //
+        //&::after {
+        //    right: 0;
+        //    background-image: linear-gradient(to left, $white 0, transparent 100%);
+        //}
     }
 
     .product-card__img-wrapper {
