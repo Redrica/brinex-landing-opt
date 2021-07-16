@@ -1,34 +1,36 @@
 <template>
-    <div class="header" ref="header">
-        <header class="header__inner container">
-            <img class="header__logo header__logo--full" src="../assets/img/brinex_logo_full.svg" width="116"
-                 alt="Логотип компании Бринекс"/>
-            <img class="header__logo header__logo--small" src="../assets/img/brinex_logo_simple.svg" width="66"
-                 alt="Логотип компании Бринекс"/>
-            <nav class="header__nav menu">
-                <a class="menu__item" href="">
-                    <icon class="menu__icon" name="Catalog"/>
-                    Каталог товаров и услуг</a>
-                <a class="menu__item" href="tel:88002509780">
-                    <icon class="menu__icon" name="Phone"/>
-                    8 800 250-97-80</a>
-                <div class="menu__item menu__item--submenu">
-                    <p class="menu__item-block">
-                        <span class="menu__item-text">Оптовым клиентам</span>
-                        <icon class="menu__icon" name="Arrow"/>
-                    </p>
-                    <ul class="menu__submenu submenu">
-                        <li class="submenu__item" v-for="link in menuLinks">
-                            <a class="submenu__link" :href="link.href">{{ link.name }}</a>
-                        </li>
-                    </ul>
-                </div>
-                <a class="menu__item" href="">Корпоративным клиентам</a>
-                <a class="menu__item" href="">Франшиза</a>
-            </nav>
+  <div class="header" ref="header">
+    <header class="header__inner container">
+      <img class="header__logo header__logo--full" src="../assets/img/brinex_logo_full.svg" width="116"
+           alt="Логотип компании Бринекс"/>
+      <img class="header__logo header__logo--small" src="../assets/img/brinex_logo_simple.svg" width="66"
+           alt="Логотип компании Бринекс"/>
+      <img class="header__logo header__logo--full-white-bg" src="../assets/img/brinex_logo_full_white_bg.svg" width="116"
+           alt="Логотип компании Бринекс"/>
+      <nav class="header__nav menu">
+        <a class="menu__item" href="">
+          <icon class="menu__icon" name="Catalog"/>
+          Каталог товаров и услуг</a>
+        <a class="menu__item" href="tel:88002509780">
+          <icon class="menu__icon" name="Phone"/>
+          8 800 250-97-80</a>
+        <div class="menu__item menu__item--submenu">
+          <p class="menu__item-block">
+            <span class="menu__item-text">Оптовым клиентам</span>
+            <icon class="menu__icon" name="Arrow"/>
+          </p>
+          <ul class="menu__submenu submenu">
+            <li class="submenu__item" v-for="link in menuLinks">
+              <a class="submenu__link" :href="link.href">{{ link.name }}</a>
+            </li>
+          </ul>
+        </div>
+        <a class="menu__item" href="">Корпоративным клиентам</a>
+        <a class="menu__item" href="">Франшиза</a>
+      </nav>
 
-        </header>
-    </div>
+    </header>
+  </div>
 </template>
 
 <script>
@@ -36,38 +38,38 @@ import { menuLinks } from '@/helpers/menu-links';
 import { mapState } from 'vuex';
 
 export default {
-    name: 'PageHeader',
-    data() {
-        return {
-            menuLinks: menuLinks,
-        }
-    },
-
-    computed: {
-        ...mapState(['scrollLimit']),
-    },
-
-    mounted() {
-        this.onScroll();
-        window.addEventListener('scroll', this.onScroll);
-    },
-
-    methods: {
-        // debounce!
-        onScroll() {
-            if (this.scrollLimit && (window.pageYOffset >= this.scrollLimit)) {
-                this.$refs[ 'header' ].classList.add('header--sticky');
-            } else if (window.pageYOffset < this.scrollLimit) {
-                this.$refs[ 'header' ].classList.remove('header--sticky');
-            }
-        },
-    },
-
-    watch: {
-        scrollLimit() {
-            this.onScroll();
-        },
+  name: 'PageHeader',
+  data() {
+    return {
+      menuLinks: menuLinks,
     }
+  },
+
+  computed: {
+    ...mapState([ 'scrollLimit' ]),
+  },
+
+  mounted() {
+    this.onScroll();
+    window.addEventListener('scroll', this.onScroll);
+  },
+
+  methods: {
+    // debounce!
+    onScroll() {
+      if (this.scrollLimit && (window.pageYOffset >= this.scrollLimit)) {
+        this.$refs[ 'header' ].classList.add('header--sticky');
+      } else if (window.pageYOffset < this.scrollLimit) {
+        this.$refs[ 'header' ].classList.remove('header--sticky');
+      }
+    },
+  },
+
+  watch: {
+    scrollLimit() {
+      this.onScroll();
+    },
+  }
 }
 </script>
 
@@ -144,6 +146,20 @@ export default {
                 }
             }
         }
+
+        &--fullscreen {
+            background-color: $white;
+            box-shadow: none;
+
+            & .header__logo--full-white-bg {
+                display: block;
+                margin-right: 39px;
+            }
+
+            & .header__logo--small {
+                display: none;
+            }
+        }
     }
 
     .header__inner {
@@ -158,6 +174,10 @@ export default {
         margin-right: 39px;
 
         &--small {
+            display: none;
+        }
+
+        &--full-white-bg {
             display: none;
         }
     }

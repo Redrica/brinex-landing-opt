@@ -42,7 +42,7 @@ export default {
 
     mounted() {
         this.setScrollLimit(this.getScrollLimit());
-        window.addEventListener('scroll', this.setStickyButton);
+        // window.addEventListener('scroll', this.setStickyButton);
     }
 }
 </script>

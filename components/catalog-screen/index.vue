@@ -56,7 +56,7 @@ export default {
         speed: 3000,
         freeMode: true,
         loop: true,
-        slidesPerView: 8,
+        slidesPerView: 4,
         centeredSlides: true,
         spaceBetween: 12,
         // pagination: {
@@ -69,7 +69,7 @@ export default {
         // },
         breakpoints: {
           1024: {
-            slidesPerView: 8,
+            slidesPerView: 4,
             spaceBetween: 10
           },
           768: {

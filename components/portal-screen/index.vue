@@ -1,7 +1,5 @@
 <template>
     <section class="portal-screen">
-
-
         <div class="portal-screen__inner container">
 
             <ModalTemplate

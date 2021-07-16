@@ -5,6 +5,7 @@
     </h1>
     <StartScreen/>
     <CatalogScreen/>
+    <CertificatesScreen/>
     <OptionsScreen/>
     <PortalScreen/>
     <ReviewsScreen/>
@@ -17,10 +18,14 @@ import CatalogScreen from '~/components/catalog-screen';
 import OptionsScreen from '~/components/options-screen';
 import PortalScreen from '~/components/portal-screen/index';
 import ReviewsScreen from '~/components/reviews-screen';
+import ScreenCertificates from '@/components/screen-certiаicates';
+import CertificatesScreen from '@/components/screen-certiаicates';
 
 export default {
   name: 'MainPage',
   components: {
+    CertificatesScreen,
+    ScreenCertificates,
     ReviewsScreen,
     StartScreen,
     CatalogScreen,

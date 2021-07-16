@@ -43,13 +43,25 @@ export default {
     },
     onSwiperClickSlide(index, reallyIndex) {
       // some code
-    }
+    },
+  },
+  mounted() {
+    console.log('Current Swiper instance object myDirectiveSwiper', this.myDirectiveSwiper);
+    // this.myDirectiveSwiper.destroy();
+    // this.test();
+
+
+    // console.log('Current Swiper instance object $swiper', this.$swiper);
   }
 }
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
     .swiper-wrapper.swiper-wrapper--linear-timing {
         transition-timing-function: linear;
+    }
+
+    .swiper-slide {
+        box-sizing: border-box;
     }
 </style>
