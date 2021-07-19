@@ -29,24 +29,24 @@
         </div>
       </div>
 
-<!--      <div class="certificate-screen__pictures gallery" :class="{'shown': isGalleryShown}">-->
-<!--        <div class="container">-->
-<!--          <button class="gallery-btn" @click="handleGallery">← Назад</button>-->
+      <div class="certificate-screen__pictures gallery" :class="{'shown': isGalleryShown}">
+        <div class="container">
+          <button class="gallery-btn" @click="handleGallery">← Назад</button>
 
-<!--          <p class="gallery__title">Сертификаты от поставщиков</p>-->
+          <p class="gallery__title">Сертификаты от поставщиков</p>
 
-<!--          <div class="gallery__container">-->
-<!--            <ul class="gallery__list">-->
-<!--              <li class="gallery__item" v-for="image in certificatesList">-->
-<!--                <div class="gallery__image-wrapper">-->
-<!--                  <img class="gallery__image" :src="`/brinex-landing-opt/img/${image.imgSrc}`" :alt="image.alt">-->
-<!--                </div>-->
-<!--                <p class="gallery__text">Сертификат соответствия</p>-->
-<!--              </li>-->
-<!--            </ul>-->
-<!--          </div>-->
-<!--        </div>-->
-<!--      </div>-->
+          <div class="gallery__container">
+            <ul class="gallery__list">
+              <li class="gallery__item" v-for="image in certificatesList">
+                <div class="gallery__image-wrapper">
+                  <img class="gallery__image" :src="`/brinex-landing-opt/img/${image.imgSrc}`" :alt="image.alt">
+                </div>
+                <p class="gallery__text">Сертификат соответствия</p>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
     </div>
   </section>
 

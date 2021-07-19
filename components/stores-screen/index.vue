@@ -1,22 +1,19 @@
 <template>
   <section class="stores-screen">
-    <div class="stores-screen__content container">
-      <h2 class="stores-screen__title part-title">
-        <span class="part-title part-title--accent">Экономьте на сроках доставки </span>с нашей широкой сетью складов
-      </h2>
+<!--    <div class="stores-screen__content container">-->
 
-      <p class="stores-screen__text stores-screen__text--first">Мы можем доставить вам товар максимально быстро, потому что: </p>
-      <p class="stores-screen__text stores-screen__text--second">— У нас <span>6 распределительных центров</span> общей площадью 100 тыс. м<sup>2</sup></p>
-      <p class="stores-screen__text stores-screen__text--third">— 217 <span>шинных центров</span> в ста городах </p>
-    </div>
+<!--      <h2 class="stores-screen__title part-title">-->
+<!--        <span class="part-title part-title&#45;&#45;accent">Экономьте на сроках доставки </span>с нашей широкой сетью складов-->
+<!--      </h2>-->
+
+<!--      <p class="stores-screen__text stores-screen__text&#45;&#45;first">Мы можем доставить вам товар максимально быстро, потому что: </p>-->
+<!--      <p class="stores-screen__text stores-screen__text&#45;&#45;second">— У нас <span>6 распределительных центров</span> общей площадью 100 тыс. м<sup>2</sup></p>-->
+<!--      <p class="stores-screen__text stores-screen__text&#45;&#45;third">— 217 <span>шинных центров</span> в ста городах </p>-->
+<!--    </div>-->
 
     <DemoMap/>
 
     <div class="stores-screen__promo promo-label">
-      <svg class="promo-label__icon" width="53" height="91" viewBox="0 0 53 91" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M0.412842 60.8829L7.97813 18.7588L47.1285 0.133667L31.2414 42.954L52.2351 39.4727L10.4369 90.9963L17.813 55.4868L0.412842 60.8829Z" fill="white"/>
-      </svg>
-
       <div class="promo-label__wrapper">
         <p class="promo-label__title">день в день</p>
         <p class="promo-label__text">доставка по всей России</p>
@@ -29,7 +26,11 @@
 import DemoMap from '@/components/stores-screen/DemoMap';
 export default {
   name: 'StoresScreen',
-  components: { DemoMap }
+  components: { DemoMap },
+  data() {
+    return {
+    }
+  }
 }
 </script>
 
@@ -92,15 +93,17 @@ export default {
     .promo-label__wrapper {
         position: relative;
         transform: skew(9deg) rotate(3deg);
-    }
 
-    .promo-label__icon {
-        position: absolute;
-        top: 14px;
-        left: 37px;
-
-        & path {
-            box-shadow: -3px -2px 0 0;
+        &::before {
+            content: '';
+            position: absolute;
+            top: -7px;
+            left: -75px;
+            width: 66px;
+            height: 106px;
+            background-image: url("/brinex-landing-opt/img/lightning.svg");
+            background-repeat: no-repeat;
+            background-position: center;
         }
     }
 
