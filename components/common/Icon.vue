@@ -1,5 +1,5 @@
 <template>
-    <component :is="name" v-bind="$attrs" v-on="$listeners" />
+  <component :is="name" v-bind="$attrs" v-on="$listeners"/>
 </template>
 
 <script>
@@ -20,27 +20,29 @@ import CheckIcon from '~/assets/svg/check-icon.svg?inline';
 import CheckIconSolid from '~/assets/svg/check-icon-solid.svg?inline';
 import ReArrow from '~/assets/svg/re-arrow.svg?inline';
 import ReArrowSolid from '~/assets/svg/re-arrow-solid.svg?inline';
+// import Map from '~/assets/svg/map.svg?inline';
 
 export default {
   name: 'Icon',
   components: {
-      Arrow,
-      Catalog,
-      Phone,
-      OkSign,
-      Plus,
-      Info,
-      InfoSolid,
-      Store,
-      StoreSolid,
-      Return,
-      ReturnSolid,
-      Percent,
-      PercentSolid,
-      CheckIcon,
-      CheckIconSolid,
-      ReArrow,
-      ReArrowSolid,
+    Arrow,
+    Catalog,
+    Phone,
+    OkSign,
+    Plus,
+    Info,
+    InfoSolid,
+    Store,
+    StoreSolid,
+    Return,
+    ReturnSolid,
+    Percent,
+    PercentSolid,
+    CheckIcon,
+    CheckIconSolid,
+    ReArrow,
+    ReArrowSolid,
+    // Map
   },
   props: {
     name: String,

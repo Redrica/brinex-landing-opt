@@ -29,24 +29,24 @@
         </div>
       </div>
 
-      <div class="certificate-screen__pictures gallery" :class="{'shown': isGalleryShown}">
-        <div class="container">
-          <button class="gallery-btn" @click="handleGallery">← Назад</button>
+<!--      <div class="certificate-screen__pictures gallery" :class="{'shown': isGalleryShown}">-->
+<!--        <div class="container">-->
+<!--          <button class="gallery-btn" @click="handleGallery">← Назад</button>-->
 
-          <p class="gallery__title">Сертификаты от поставщиков</p>
+<!--          <p class="gallery__title">Сертификаты от поставщиков</p>-->
 
-          <div class="gallery__container">
-            <ul class="gallery__list">
-              <li class="gallery__item" v-for="image in certificatesList">
-                <div class="gallery__image-wrapper">
-                  <img class="gallery__image" :src="`/brinex-landing-opt/img/${image.imgSrc}`" :alt="image.alt">
-                </div>
-                <p class="gallery__text">Сертификат соответствия</p>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </div>
+<!--          <div class="gallery__container">-->
+<!--            <ul class="gallery__list">-->
+<!--              <li class="gallery__item" v-for="image in certificatesList">-->
+<!--                <div class="gallery__image-wrapper">-->
+<!--                  <img class="gallery__image" :src="`/brinex-landing-opt/img/${image.imgSrc}`" :alt="image.alt">-->
+<!--                </div>-->
+<!--                <p class="gallery__text">Сертификат соответствия</p>-->
+<!--              </li>-->
+<!--            </ul>-->
+<!--          </div>-->
+<!--        </div>-->
+<!--      </div>-->
     </div>
   </section>
 
@@ -83,11 +83,11 @@ export default {
       &::before {
           content: '';
           position: absolute;
-          top: -2.5vw;
+          top: -4vw;
           z-index: 1;
           width: 100%;
           height: 6vw;
-          transform: skewY(-2.5deg);
+          transform: skewY(-2.1deg);
           background-color: $white
       }
 
@@ -98,18 +98,18 @@ export default {
           z-index: 1;
           width: 100%;
           height: 6vw;
-          transform: skewY(-2.5deg);
+          transform: skewY(-2.1deg);
           background-color: $white
       }
   }
 
   .certificate-screen__inner {
-      padding: 105px 56px 113px;
+      padding: 91px 56px 118px;
   }
 
   .certificate-screen__title {
       max-width: 960px;
-      margin: 0 auto 50px
+      margin: 0 auto 55px
   }
 
   .certificate-screen__block {
@@ -121,13 +121,13 @@ export default {
       display: flex;
       flex-wrap: wrap;
       width: calc((100% - 20px) / 2);
-      padding: 24px;
+      padding: 24px 24px 18px;
       background-color: $white;
       border-radius: 8px;
       transition: all 0.2s ease;
 
       &--certificates {
-          background-image: url("/img/certificates_back.jpg");
+          background-image: url("/brinex-landing-opt/img/certificates_back.jpg");
           background-repeat: no-repeat;
           background-position: right 0 bottom -150px;
 
@@ -142,7 +142,7 @@ export default {
   }
 
   .certificate-screen__item-title {
-      margin: 0 30px 56px 0;
+      margin: 0 30px 57px 0;
       font-weight: 600;
       font-size: 24px;
       line-height: 120%;
@@ -157,7 +157,7 @@ export default {
       text-decoration: none;
       text-align: center;
       color: $black;
-      background-image: url("/img/link-arrow-back.svg");
+      background-image: url("/brinex-landing-opt/img/link-arrow-back.svg");
       background-repeat: no-repeat;
       background-position: center;
   }

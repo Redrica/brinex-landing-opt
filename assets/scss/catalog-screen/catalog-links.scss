@@ -33,7 +33,7 @@
         &::before {
             width: 63px;
             height: 63px;
-            background-image: url("/img/tire_res.png");
+            background-image: url("/brinex-landing-opt/img/tire_res.png");
         }
     }
 
@@ -43,7 +43,7 @@
             height: 65px;
             margin-right: 10px;
             margin-left: 5px;
-            background-image: url("/img/disk_res.png");
+            background-image: url("/brinex-landing-opt/img/disk_res.png");
         }
     }
 
@@ -51,7 +51,7 @@
         &::before {
             width: 69px;
             height: 69px;
-            background-image: url("/img/mototire_res.png");
+            background-image: url("/brinex-landing-opt/img/mototire_res.png");
         }
     }
 
@@ -59,7 +59,7 @@
         &::before {
             width: 70px;
             height: 70px;
-            background-image: url("/img/battery_res.png");
+            background-image: url("/brinex-landing-opt/img/battery_res.png");
         }
     }
 
@@ -67,12 +67,14 @@
         &::before {
             width: 63px;
             height: 63px;
-            background-image: url("/img/oil_res.png");
+            background-image: url("/brinex-landing-opt/img/oil_res.png");
         }
     }
 
     &--link {
+        margin-right: 0;
         padding-left: 16px;
+
         &::before {
             content: none;
         }

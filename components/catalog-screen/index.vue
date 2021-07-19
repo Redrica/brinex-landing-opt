@@ -1,5 +1,6 @@
 <template>
   <section class="catalog-screen">
+
     <h2 class="catalog-screen__title part-title">
       <span class="part-title part-title--accent">Укомплектуем ваш склад. </span>Более 30 000 разных товаров
     </h2>
@@ -105,44 +106,25 @@ export default {
 
 <style lang='scss'>
     .catalog-screen {
-        padding: 50px 0 0;
+        padding: 46px 0 0;
     }
 
     .catalog-screen__title {
         max-width: 965px;
-        margin: 0 auto 30px;
+        margin: 0 auto 32px;
     }
 
     .catalog-screen__links {
-        margin-bottom: 40px;
+        margin-bottom: 47px;
     }
 
     .catalog-screen__button {
-        margin: 65px auto 70px;
+        margin: 49px auto 70px;
     }
 
     .catalog-screen__swiper {
         position: relative;
 
-        //&::before,
-        //&::after {
-        //    content: '';
-        //    position: absolute;
-        //    top: 0;
-        //    bottom: 0;
-        //    z-index: 10;
-        //    width: 70px;
-        //}
-
-        //&::before {
-        //    left: 0;
-        //    background-image: linear-gradient(to right, $white 0, transparent 100%);
-        //}
-        //
-        //&::after {
-        //    right: 0;
-        //    background-image: linear-gradient(to left, $white 0, transparent 100%);
-        //}
     }
 
     .product-card__img-wrapper {

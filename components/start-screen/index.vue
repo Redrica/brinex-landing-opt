@@ -62,11 +62,11 @@ export default {
         &::after {
             content: '';
             position: absolute;
-            top: calc(100% - 2.2vw);
+            top: calc(100% - 2vw);
             z-index: 1;
             width: 100%;
             height: 6vw;
-            transform: skewY(-2.5deg);
+            transform: skewY(-2.1deg);
             background-color: $white
         }
     }
@@ -80,22 +80,20 @@ export default {
         display: flex;
         width: 100%;
         justify-content: space-between;
-        padding: 210px 30px 110px 36px;
+        padding: 322px 40px 110px 42px;
     }
 
     .start-screen__title {
-        max-width: 50%;
+        max-width: 620px;
         margin: 0;
         font-family: $gorizont;
         font-size: 67px;
-        line-height: 75px;
+        line-height: 111%;
         color: $white;
     }
 
     .start-screen__link {
         align-self: flex-end;
-        right: 0;
-        bottom: 0;
 
         &:hover {
             transform: scale(1.04);

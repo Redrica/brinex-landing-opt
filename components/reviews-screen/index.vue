@@ -142,7 +142,7 @@ export default {
 
     .reviews-list__content {
         padding-top: 72px;
-        background-image: url("/img/big-arrows-right.svg");
+        background-image: url("/brinex-landing-opt/img/big-arrows-right.svg");
         background-repeat: no-repeat;
         background-position: left top;
         font-size: 20px;
