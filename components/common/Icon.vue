@@ -20,7 +20,22 @@ import CheckIcon from '~/assets/svg/check-icon.svg?inline';
 import CheckIconSolid from '~/assets/svg/check-icon-solid.svg?inline';
 import ReArrow from '~/assets/svg/re-arrow.svg?inline';
 import ReArrowSolid from '~/assets/svg/re-arrow-solid.svg?inline';
-// import Map from '~/assets/svg/map.svg?inline';
+import Box from '~/assets/svg/box.svg?inline';
+import BoxSolid from '~/assets/svg/box-solid.svg?inline';
+import Wheel from '~/assets/svg/wheel.svg?inline';
+import WheelSolid from '~/assets/svg/wheel-solid.svg?inline';
+import Site from '~/assets/svg/site.svg?inline';
+import SiteSolid from '~/assets/svg/site-solid.svg?inline';
+import Logistics from '~/assets/svg/logistics.svg?inline';
+import LogisticsSolid from '~/assets/svg/logistics-solid.svg?inline';
+import Grow from '~/assets/svg/grow.svg?inline';
+import GrowSolid from '~/assets/svg/grow-solid.svg?inline';
+import Gear from '~/assets/svg/gear.svg?inline';
+import GearSolid from '~/assets/svg/gear-solid.svg?inline';
+import Online from '~/assets/svg/online.svg?inline';
+import OnlineSolid from '~/assets/svg/online-solid.svg?inline';
+import Truck from '~/assets/svg/truck.svg?inline';
+import TruckSolid from '~/assets/svg/truck-solid.svg?inline';
 
 export default {
   name: 'Icon',
@@ -42,7 +57,22 @@ export default {
     CheckIconSolid,
     ReArrow,
     ReArrowSolid,
-    // Map
+    Box,
+    BoxSolid,
+    Wheel,
+    WheelSolid,
+    Site,
+    SiteSolid,
+    Logistics,
+    LogisticsSolid,
+    Gear,
+    GearSolid,
+    Grow,
+    GrowSolid,
+    Online,
+    OnlineSolid,
+    Truck,
+    TruckSolid,
   },
   props: {
     name: String,
