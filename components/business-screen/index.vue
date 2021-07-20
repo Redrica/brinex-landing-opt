@@ -1,0 +1,180 @@
+<template>
+  <section class="business-screen container">
+
+    <h2 class="business-screen__title part-title">
+      Готовые решения для старта <span class="part-title part-title--accent"> и развития бизнеса</span>
+    </h2>
+
+    <div class="business-screen__tabs">
+      <ul class="tabs">
+        <li class="tabs__item"
+            v-for="(tab, index) in $options.tabs"
+            :class="{'tabs__item--active': activeTabIndex === index}"
+            @click="activeTabIndex = index"
+        >{{ tab }}
+        </li>
+      </ul>
+    </div>
+
+    <ul class="offers-list">
+      <li class="offers-list__item"
+          v-for="offer in $options.businessList[activeTabIndex]"
+          :class="offer.className">
+        <!--        <icon v-if="true" :name="offer.iconName"></icon>-->
+        <!--        <icon v-else :name="offer.iconNameSolid"></icon>-->
+        {{ offer.text }}
+      </li>
+    </ul>
+
+  </section>
+
+</template>
+
+<script>
+import { tabs, businessList } from '~/helpers/business-list';
+
+export default {
+  name: 'BusinessScreen',
+
+  tabs: tabs,
+  businessList: businessList,
+
+  data() {
+    return {
+      activeTabIndex: 0,
+    }
+  },
+}
+</script>
+
+<style lang="scss">
+    .business-screen {
+        padding: 100px 56px 50px;
+    }
+
+    .business-screen__title {
+        max-width: 880px;
+        margin: 0 auto 33px;
+    }
+
+    .business-screen__tabs {
+        margin-bottom: 74px;
+    }
+
+    .tabs {
+        display: flex;
+        justify-content: center;
+        margin: 0;
+        padding: 0;
+        list-style: none;
+    }
+
+    .tabs__item {
+        position: relative;
+        margin-right: 10px;
+        padding: 0 10px 2px;
+        font-family: "ALS Gorizont", "Trebuchet MS", sans-serif;
+        font-size: 32px;
+        line-height: 120%;
+        border: 1px solid $white;
+        cursor: pointer;
+
+        &::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 1px;
+            border-bottom: 3px dotted $primaryDarker;
+        }
+
+        &--active {
+            color: $primaryDarker;
+            border-color: $primaryDarker;
+            border-radius: 3px;
+
+            &::after {
+                content: none;
+            }
+        }
+
+        &:hover {
+            color: $primaryDarker;
+        }
+
+        &:last-child {
+            margin-right: 0;
+        }
+    }
+
+    .offers-list {
+        display: flex;
+        justify-content: space-between;
+        margin: 0;
+        padding: 35px 10px 0 86px;
+        list-style: none;
+        color: $white;
+        background-color: #00965e;
+        transform: rotate(-4deg);
+    }
+
+    .offers-list__item {
+        max-width: 176px;
+        padding-top: 56px;
+        font-size: 16px;
+        line-height: 140%;
+        background-repeat: no-repeat;
+        transform: rotate(4deg);
+
+        &--wheel-bg {
+            background-image: url("/brinex-landing-opt/img/wheel.svg");
+        }
+
+        &--site-bg {
+            background-image: url("/brinex-landing-opt/img/site.svg");
+        }
+
+        &--logistics-bg {
+            background-image: url("/brinex-landing-opt/img/logistics.svg");
+        }
+
+        &--grow-bg {
+            background-image: url("/brinex-landing-opt/img/grow.svg");
+        }
+
+        &--percent-small-bg {
+            background-image: url("/brinex-landing-opt/img/percent-small.svg");
+        }
+
+        &--gear-bg {
+            background-image: url("/brinex-landing-opt/img/gear.svg");
+        }
+
+        &--online-bg {
+            background-image: url("/brinex-landing-opt/img/online.svg");
+        }
+
+        &--truck-bg {
+            background-image: url("/brinex-landing-opt/img/truck.svg");
+        }
+
+        &--box-bg {
+            background-image: url("/brinex-landing-opt/img/box.svg");
+        }
+
+        &:first-child {
+            margin-top: 8px;
+        }
+
+        &:nth-child(2) {
+            margin-top: 8px;
+            margin-left: -16px;
+        }
+
+        &:nth-child(3) {
+
+        }
+    }
+
+</style>

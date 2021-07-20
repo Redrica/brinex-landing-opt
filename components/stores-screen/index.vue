@@ -1,15 +1,15 @@
 <template>
   <section class="stores-screen">
-<!--    <div class="stores-screen__content container">-->
+    <div class="stores-screen__content container">
 
-<!--      <h2 class="stores-screen__title part-title">-->
-<!--        <span class="part-title part-title&#45;&#45;accent">Экономьте на сроках доставки </span>с нашей широкой сетью складов-->
-<!--      </h2>-->
+      <h2 class="stores-screen__title part-title">
+        <span class="part-title part-title--accent">Экономьте на сроках доставки </span>с нашей широкой сетью складов
+      </h2>
 
-<!--      <p class="stores-screen__text stores-screen__text&#45;&#45;first">Мы можем доставить вам товар максимально быстро, потому что: </p>-->
-<!--      <p class="stores-screen__text stores-screen__text&#45;&#45;second">— У нас <span>6 распределительных центров</span> общей площадью 100 тыс. м<sup>2</sup></p>-->
-<!--      <p class="stores-screen__text stores-screen__text&#45;&#45;third">— 217 <span>шинных центров</span> в ста городах </p>-->
-<!--    </div>-->
+      <p class="stores-screen__text stores-screen__text--first">Мы можем доставить вам товар максимально быстро, потому что: </p>
+      <p class="stores-screen__text stores-screen__text--second">— У нас <span>6 распределительных центров</span> общей площадью 100 тыс. м<sup>2</sup></p>
+      <p class="stores-screen__text stores-screen__text--third">— 217 <span>шинных центров</span> в ста городах </p>
+    </div>
 
     <DemoMap/>
 

@@ -4,28 +4,23 @@ export const businessList = [
   [
     {
       text: 'Поможем собрать ассортимент ходовых товаров',
-      iconName: 'Wheel',
-      iconSimpSolid: 'WheelSolid',
+      className: 'offers-list__item--wheel-bg'
     },
     {
       text: 'Создадим вам сайт на базе портала Бринэкс',
-      iconName: 'Site',
-      iconNameSolid: 'SiteSolid',
+      className: 'offers-list__item--site-bg'
     },
     {
       text: 'Возьмем на себя всю логистику',
-      iconName: 'Logistics',
-      iconNameSolid: 'LogisticsSolid',
+      className: 'offers-list__item--logistics-bg'
     },
     {
       text: 'Поможем вам расти с помощью нашей аналитики и знаний',
-      iconName: 'Grow',
-      iconNameSolid: 'GrowSolid',
+      className: 'offers-list__item--grow-bg'
     },
     {
       text: 'Получайте персональные бонусы',
-      iconName: 'Percent',
-      iconNameSolid: 'PercentSolid',
+      className: 'offers-list__item--percent-small-bg'
     },
   ],
 
@@ -33,28 +28,23 @@ export const businessList = [
   [
     {
       text: 'Автоматизация обменов по товарам, заказам и документам',
-      iconName: 'Gear',
-      iconNameSolid: 'GearSolid',
+      className: 'offers-list__item--gear-bg',
     },
     {
       text: 'Онлайн оплата и кредитование',
-      iconName: 'Online',
-      iconNameSolid: 'OnlineSolid',
+      className: 'offers-list__item--online-bg',
     },
     {
       text: 'Интеграция с транспортными компаниями',
-      iconName: 'Truck',
-      iconNameSolid: 'TruckSolid',
+      className: 'offers-list__item--truck-bg',
     },
     {
       text: 'Поможем вам расти с помощью нашей аналитики и знаний',
-      iconName: 'Grow',
-      iconNameSolid: 'GrowSolid',
+      className: 'offers-list__item--grow-bg'
     },
     {
       text: 'Получайте персональные бонусы',
-      iconName: 'Percent',
-      iconNameSolid: 'PercentSolid',
+      className: 'offers-list__item--percent-small-bg'
     },
   ],
 
@@ -62,28 +52,23 @@ export const businessList = [
   [
     {
       text: 'Обеспечим всем необходимым — от станков до расходников',
-      iconName: 'Box',
-      iconNameSolid: 'BoxSolid',
+      className: 'offers-list__item--box-bg'
     },
     {
       text: 'Поможем собрать ассортимент ходовых товаров',
-      iconName: 'Wheel',
-      iconNameSolid: 'WheelSolid',
+      className: 'offers-list__item--wheel-bg'
     },
     {
       text: 'Возьмем на себя всю логистику',
-      iconName: 'Logistics',
-      iconNameSolid: 'LogisticsSolid',
+      className: 'offers-list__item--logistics-bg'
     },
     {
       text: 'Поможем вам расти с помощью нашей аналитики и знаний',
-      iconName: 'Grow',
-      iconNameSolid: 'GrowSolid',
+      className: 'offers-list__item--grow-bg'
     },
     {
       text: 'Получайте персональные бонусы',
-      iconName: 'Percent',
-      iconNameSolid: 'PercentSolid',
+      className: 'offers-list__item--percent-small-bg'
     },
   ],
 ];

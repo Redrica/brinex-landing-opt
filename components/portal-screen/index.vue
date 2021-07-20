@@ -90,7 +90,7 @@ export default {
             z-index: 1;
             width: 100%;
             height: 6vw;
-            transform: skewY(-2.5deg);
+            transform: skewY(-2.1deg);
             background-color: $white
         }
 
@@ -101,13 +101,13 @@ export default {
             z-index: 1;
             width: 100%;
             height: 6vw;
-            transform: skewY(-2.5deg);
+            transform: skewY(-2.1deg);
             background-color: $white
         }
     }
 
     .portal-screen__inner {
-        padding: 105px 56px 113px;
+        padding: 115px 56px 113px;
     }
 
     .portal-screen__title {
@@ -119,7 +119,7 @@ export default {
         display: flex;
         flex-wrap: wrap;
         justify-content: space-between;
-        margin: 70px 0 0;
+        margin: 54px 0 -18px;
         padding: 0 50px;
         list-style: none;
     }
@@ -165,7 +165,7 @@ export default {
 
     .portal-screen__icon {
         display: block;
-        margin-bottom: 15px;
+        margin-bottom: 9px;
 
         &--hover {
             position: absolute;
@@ -182,7 +182,7 @@ export default {
     }
 
     .portal-screen__button {
-        margin: 0 auto 50px;
+        margin: 0 auto 60px;
     }
 
     .portal-screen__video-container {
@@ -214,7 +214,7 @@ export default {
     }
 
     .portal-screen__text {
-        margin: 20px 0 0;
+        margin: 40px 0 0;
         font-size: 20px;
         line-height: 140%;
         text-align: center;

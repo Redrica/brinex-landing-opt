@@ -6,7 +6,7 @@
         <ul class="options-list">
             <li class="options-list__item"
                 ref="list-item"
-                v-for="(option, i) in optionsList"
+                v-for="(option, i) in $options.optionsList"
                 :key="i">
                 <div class="options-list__title-wrapper">
                     <p class="options-list__title" v-html="option.title"></p>
@@ -38,9 +38,11 @@ const EXTRA_SPACE = 500;
 
 export default {
     name: 'OptionsScreen',
+
+  optionsList: optionsList,
+
     data() {
         return {
-            optionsList: optionsList,
             animaStartY: 0,
         }
     },
@@ -83,13 +85,13 @@ export default {
     .options-screen {
         position: relative;
         z-index: 5;
-        padding: 70px 56px 20px;
+        padding: 75px 56px 29px;
 
     }
 
     .options-screen__title {
         max-width: 900px;
-        margin: 0 auto 35px;
+        margin: 0 auto 38px;
     }
 
     .options-list {
@@ -104,7 +106,7 @@ export default {
         position: relative;
         width: 283px;
         margin-right: 12px;
-        padding: 0 0 12px 0;
+        padding: 0 0 6px 0;
         background-color: $almostWhite;
         border-radius: 8px;
         overflow: hidden;
@@ -153,34 +155,35 @@ export default {
 
     .options-list__title-wrapper {
         margin-top: -7px;
-        padding: 20px 17px 10px 14px;
-        transform: skewY(-3deg);
+        padding: 20px 17px 5px 14px;
+        transform: skewY(-2deg);
     }
 
     .options-list__title {
         position: relative;
         z-index: 1;
         margin-top: 3px;
-        margin-bottom: 12px;
+        margin-bottom: 10px;
         font-size: 34px;
         line-height: 96%;
         font-weight: 600;
-        transform: skewY(3deg);
+        transform: skewY(2deg);
     }
 
     .options-list__subtitle {
         position: relative;
         z-index: 1;
-        margin-bottom: 0;
+        margin: 0;
         font-size: 16px;
         line-height: 25px;
+        font-weight: 600;
         text-transform: uppercase;
         letter-spacing: 0.5px;
-        transform: skewY(2.5deg);
+        transform: skewY(2deg);
     }
 
     .options-list__list-item {
-        margin-bottom: 15px;
+        margin-bottom: 18px;
         font-size: 20px;
         line-height: 140%;
 
@@ -190,7 +193,7 @@ export default {
     }
 
     .options-list__list {
-        margin-top: 20px;
+        margin: 17px 0 0;
         padding: 0 15px 0 38px;
         list-style: none;
     }

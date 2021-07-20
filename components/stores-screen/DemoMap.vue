@@ -1,57 +1,24 @@
 <template>
   <div class="demo-map">
-
     <div class="demo-map__back">
-
       <div class="mark-center__block">
 
-<!--          <v-popover-->
-<!--            offset="160"-->
-<!--            v-for="point in warehousesList"-->
-<!--          >-->
-            <!-- This will be the popover target (for the events and position) -->
-<!--            <button class="tooltip-target">Click me</button>-->
+        <v-popover v-for="point in warehousesList"
+                   class="mark-center__item"
+                   :class="point.className"
+                   offset="-30"
+                   placement="bottom"
+        >
+          <svg class="tooltip-target" width="60" height="94" viewBox="0 0 60 94" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M0 63.9242V0L29.94 29.2225L59.88 0V63.9242L29.94 93.1467L0 63.9242Z" fill="black"/>
+          </svg>
 
-            <svg v-tooltip="{
-              content: generateMessage(point),
-            }" v-for="point in warehousesList" class="mark-center__item tooltip-target"
-                 :class="point.className"
-                 width="60" height="94" viewBox="0 0 60 94" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M0 63.9242V0L29.94 29.2225L59.88 0V63.9242L29.94 93.1467L0 63.9242Z" fill="black"/>
-            </svg>
+          <template slot="popover">
+            <div class="tooltip-content" v-html="generateMessage(point)"></div>
+          </template>
+        </v-popover>
 
-            <!-- This will be the content of the popover -->
-<!--            <template slot="popover">-->
-<!--              <input class="tooltip-content" v-model="msg" placeholder="Tooltip content" />-->
-<!--              <p>-->
-<!--                {{ msg }}-->
-<!--              </p>-->
-
-<!--              &lt;!&ndash; You can put other components too &ndash;&gt;-->
-<!--              &lt;!&ndash;          <ExampleComponent char="=" />&ndash;&gt;-->
-<!--            </template>-->
-<!--          </v-popover>-->
-
-
-
-<!--          <v-popover-->
-<!--            placement="auto"-->
-<!--            :boundariesElement="boundariesElement"-->
-<!--            v-for="point in warehousesList"-->
-<!--          >-->
-<!--            <svg class="mark-center__item tooltip-target"-->
-<!--                 :class="point.className"-->
-<!--                 width="60" height="94" viewBox="0 0 60 94" fill="none" xmlns="http://www.w3.org/2000/svg">-->
-<!--              <path d="M0 63.9242V0L29.94 29.2225L59.88 0V63.9242L29.94 93.1467L0 63.9242Z" fill="black"/>-->
-<!--            </svg>-->
-
-<!--            <template slot="popover">-->
-<!--              <div class="tooltip-content" v-html="generateMessage(point)"></div>-->
-<!--            </template>-->
-<!--          </v-popover>-->
       </div>
-
-
     </div>
 
 
@@ -68,9 +35,7 @@ export default {
     return {
       warehousesList: warehousesList,
       storesList: storesList,
-      boundariesElement: '',
-
-      msg: '',
+      container: '',
     }
   },
 
@@ -81,7 +46,7 @@ export default {
   },
 
   mounted() {
-    this.boundariesElement = document.querySelector('.mark-center__block');
+    this.container = document.querySelector('.mark-center__block');
 
   },
 }
@@ -212,7 +177,7 @@ export default {
             color: $black;
             border-radius: 8px;
             padding: 18px 23px;
-            box-shadow: 0px 22.3363px 17.869px rgba(0, 0, 0, 0.0417275), 0px 12.5216px 10.0172px rgba(0, 0, 0, 0.035), 0px 6.6501px 5.32008px rgba(0, 0, 0, 0.0282725), 0px 2.76726px 2.21381px rgba(0, 0, 0, 0.0196802);
+            box-shadow: 0 5px 17px rgb(0 0 0 / 23%);
         }
 
         .tooltip-arrow {
