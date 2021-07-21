@@ -47,7 +47,7 @@ export default {
 
 <style lang="scss">
     .business-screen {
-        padding: 100px 56px 50px;
+        padding: 100px 56px 138px;
     }
 
     .business-screen__title {

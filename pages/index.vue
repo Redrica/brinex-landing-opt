@@ -10,6 +10,7 @@
     <OptionsScreen/>
     <PortalScreen/>
     <BusinessScreen/>
+    <ExperienceScreen/>
     <ReviewsScreen/>
   </div>
 </template>
@@ -23,10 +24,12 @@ import ReviewsScreen from '~/components/reviews-screen';
 import CertificatesScreen from '@/components/certiаicates-screen';
 import StoresScreen from '@/components/stores-screen';
 import BusinessScreen from '~/components/business-screen';
+import ExperienceScreen from '@/components/experience-screen';
 
 export default {
   name: 'MainPage',
   components: {
+    ExperienceScreen,
     BusinessScreen,
     StoresScreen,
     CertificatesScreen,

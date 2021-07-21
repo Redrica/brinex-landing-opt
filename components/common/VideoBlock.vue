@@ -1,7 +1,7 @@
 <template>
   <div class="video">
     <video ref="video" class="video__media"
-           src="~/assets/video/video_background_opt_first_screen_no_interface_brinex.mp4"
+           :src="videoSrc"
            v-bind="$attrs"
            loop></video>
 
@@ -36,6 +36,10 @@ export default {
   name: 'VideoBlock',
 
   props: {
+    videoSrc: {
+      type: String,
+      default: null,
+    },
     btnSize: {
       type: String,
       default: 'large',

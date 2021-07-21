@@ -29,7 +29,7 @@
       </template>
     </SwiperAbstraction>
 
-    <button-arrow class="catalog-screen__button" button-text="Весь каталог"/>
+    <ButtonArrow class="catalog-screen__button" button-text="Весь каталог"/>
   </section>
 </template>
 

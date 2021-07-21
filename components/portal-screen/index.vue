@@ -34,7 +34,7 @@
 
             <ButtonArrow class="portal-screen__button" button-text="Смотреть все" green-button />
 
-            <VideoBlock width="1168" height="660"/>
+            <VideoBlock width="1168" height="660" video-src="/brinex-landing-opt/video/video_background_opt_first_screen_no_interface_brinex.mp4"/>
 
             <p class="portal-screen__text">О портале для оптовых клиентов за 2 минуты</p>
         </div>
