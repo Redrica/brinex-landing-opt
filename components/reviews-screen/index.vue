@@ -124,7 +124,7 @@ export default {
     }
 
     .reviews-screen__button {
-        margin: 65px auto 70px;
+        margin: 59px auto 35px;
     }
 
     .reviews-list__item {

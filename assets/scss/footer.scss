@@ -16,13 +16,13 @@
 }
 
 .footer__inner {
-    padding: 128px 65px 220px;
+    padding: 132px 56px 220px;
 }
 
 .footer__main-button {
     width: 100%;
-    margin-bottom: 95px;
-    padding: 85px;
+    margin-bottom: 90px;
+    padding: 80px 85px 87px;
     font-family: "ALS Gorizont", "Trebuchet MS", sans-serif;
     font-size: 66px;
     line-height: 111%;
@@ -40,6 +40,8 @@
 }
 
 .footer__text {
+    max-width: 65%;
+    margin: 0;
     font-size: 20px;
     line-height: 28px;
 
@@ -54,7 +56,7 @@
     }
 
     &--medium {
-        margin-top: 50px;
+        margin-top: 32px;
         margin-bottom: 5px;
         font-size: 24px;
     }
@@ -101,8 +103,8 @@
 }
 
 .footer__button {
-    margin-top: 50px;
-    margin-bottom: 70px;
+    margin-top: 44px;
+    margin-bottom: 66px;
 
 }
 
@@ -111,7 +113,7 @@
 }
 
 .footer__menu {
-    margin-right: 24px;
+    margin: 0 24px 0 0;
 }
 
 .menu-list {

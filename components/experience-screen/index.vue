@@ -6,7 +6,7 @@
     </h2>
 
     <p class="experience-screen__text">Обучайте персонал в учебном центре Бринэкс. Готовим продавцов-консультантов,
-      менеджеров и технических специалистов.</p>
+      менеджеров и технических специалистов</p>
 
     <div class="video-list">
       <div class="video-list__item" v-for="card in $options.experienceList">
@@ -41,7 +41,7 @@ export default {
 
 <style lang="scss">
     .experience-screen {
-        padding: 0 56px;
+        padding: 0 56px 50px;
     }
 
     .experience-screen__title {

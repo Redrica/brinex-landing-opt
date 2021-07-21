@@ -11,6 +11,7 @@
     <PortalScreen/>
     <BusinessScreen/>
     <ExperienceScreen/>
+    <AnalyticsScreen/>
     <ReviewsScreen/>
   </div>
 </template>
@@ -25,10 +26,12 @@ import CertificatesScreen from '@/components/certiаicates-screen';
 import StoresScreen from '@/components/stores-screen';
 import BusinessScreen from '~/components/business-screen';
 import ExperienceScreen from '@/components/experience-screen';
+import AnalyticsScreen from '@/components/analytics-screen';
 
 export default {
   name: 'MainPage',
   components: {
+    AnalyticsScreen,
     ExperienceScreen,
     BusinessScreen,
     StoresScreen,

@@ -18,7 +18,7 @@
 
             <div class="footer__row">
                 <!--                TODO: год вставка-->
-                <p class="footer__address footer__text footer__text--small">© {{ year }} Бринэкс Набережные Челны, пр.
+                <p class="footer__address footer__text footer__text--small">© {{ year }} Бринэкс<br> Набережные Челны,<br> пр.
                     Сююмбике, 49, ОПС 31, А/Я 47
                     <span class="footer__text--tel">8 800 250-97-80</span>
                 </p>
