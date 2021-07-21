@@ -20,8 +20,6 @@
       <li class="offers-list__item"
           v-for="offer in $options.businessList[activeTabIndex]"
           :class="offer.className">
-        <!--        <icon v-if="true" :name="offer.iconName"></icon>-->
-        <!--        <icon v-else :name="offer.iconNameSolid"></icon>-->
         {{ offer.text }}
       </li>
     </ul>
@@ -109,17 +107,50 @@ export default {
     }
 
     .offers-list {
+        position: relative;
         display: flex;
         justify-content: space-between;
+        min-height: 270px;
         margin: 0;
         padding: 35px 10px 0 86px;
         list-style: none;
         color: $white;
-        background-color: #00965e;
         transform: rotate(-4deg);
+
+        &::before,
+        &::after {
+            content: '';
+            position: absolute;
+            display: flex;
+            justify-content: center;
+            align-items: flex-end;
+            padding-right: 80px;
+            color: $primary;
+            background-repeat: no-repeat;
+        }
+
+        &::before {
+            content: 'Запуск бизнеса';
+            top: 0;
+            left: -29px;
+            width: 748px;
+            height: 252px;
+            background-image: url("/brinex-landing-opt/img/business-list-img-1.svg");
+        }
+
+        &::after {
+            content: 'Развитие';
+            top: 0;
+            right: -32px;
+            width: 572px;
+            height: 252px;
+            background-image: url("/brinex-landing-opt/img/business-list-img-2.svg");
+        }
     }
 
     .offers-list__item {
+        position: relative;
+        z-index: 1;
         max-width: 176px;
         padding-top: 56px;
         font-size: 16px;
@@ -169,11 +200,16 @@ export default {
 
         &:nth-child(2) {
             margin-top: 8px;
-            margin-left: -16px;
         }
 
         &:nth-child(3) {
+            margin-top: 11px;
+            margin-right: 68px;
+            margin-left: -14px;
+        }
 
+        &:nth-child(4) {
+            margin-top: -5px;
         }
     }
 
