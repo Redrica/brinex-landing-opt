@@ -13,7 +13,7 @@
                 </template>
 
                 <template #body>
-                    <VideoBlock :src="modalData.videoSrc"></VideoBlock>
+                    <VideoBlock :src="modalData.videoSrc"/>
                 </template>
             </ModalTemplate>
 
@@ -34,7 +34,7 @@
 
             <ButtonArrow class="portal-screen__button" button-text="Смотреть все" green-button />
 
-            <VideoBlock />
+            <VideoBlock width="1168" height="660"/>
 
             <p class="portal-screen__text">О портале для оптовых клиентов за 2 минуты</p>
         </div>
