@@ -136,7 +136,7 @@ export default {
         &--demand {
             position: relative;
             background-image: url("/brinex-landing-opt/img/demand_bg_1.png"), $cardGradient;
-            background-position: left 32px bottom 0px, center;
+            background-position: left 32px bottom 0, center;
         }
 
         &--analytics {

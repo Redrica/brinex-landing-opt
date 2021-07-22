@@ -1,0 +1,9 @@
+<svg width="56" height="36" viewBox="0 0 56 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path fill-rule="evenodd" clip-rule="evenodd" d="M35.055 3.93959L35.9406 0H56L51.5709 19.698H47.559L50.4756 6.72489L27.2117 25.438L19.3966 15.589L5.21055 27L3 24.2147L20.6493 10.0174L28.4644 19.8664L48.2651 3.93959H35.055ZM48.1149 36H0L0.885114 32H49L48.1149 36Z" fill="url(#business-icon)"/>
+<defs>
+<linearGradient id="business-icon" x1="0.025601" y1="17.9979" x2="55.9701" y2="17.9979" gradientUnits="userSpaceOnUse">
+<stop offset="0.0838" stop-color="white"/>
+<stop offset="1" stop-color="white" stop-opacity="0.3"/>
+</linearGradient>
+</defs>
+</svg>
