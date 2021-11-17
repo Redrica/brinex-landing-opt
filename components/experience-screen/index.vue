@@ -26,7 +26,7 @@
 <script>
 import VideoBlock from '@/components/common/VideoBlock';
 import ButtonArrow from '@/components/common/ButtonArrow';
-import { experienceList } from '@/helpers/experienceList';
+import { experienceList } from '@/helpers/experience-list';
 
 export default {
   name: 'ExperienceScreen',

@@ -17,11 +17,12 @@
     </div>
 
     <ul class="offers-list">
-      <li class="offers-list__item"
-          v-for="offer in $options.businessList[activeTabIndex]"
-          :class="offer.className">
-        {{ offer.text }}
-      </li>
+        <li class="offers-list__item"
+            v-for="(offer, index) in $options.businessList[activeTabIndex]"
+            :key="offer.id + index"
+            :class="offer.className">
+          {{ offer.text }}
+        </li>
     </ul>
 
   </section>
@@ -42,6 +43,14 @@ export default {
       activeTabIndex: 0,
     }
   },
+
+  mounted() {
+    this.$options.businessList.forEach((it) => {
+      it.map((item) => {
+        item['id'] = (Math.random() * 1000).toFixed(0);
+      })
+    })
+  }
 }
 </script>
 
@@ -148,6 +157,15 @@ export default {
         }
     }
 
+    @keyframes list-app {
+      0% {
+        opacity: 0;
+      }
+      100% {
+        opacity: 1;
+      }
+    }
+
     .offers-list__item {
         position: relative;
         z-index: 1;
@@ -157,6 +175,7 @@ export default {
         line-height: 140%;
         background-repeat: no-repeat;
         transform: rotate(4deg);
+        animation: list-app 0.3s ease;
 
         &--wheel-bg {
             background-image: url("/brinex-landing-opt/img/wheel.svg");
@@ -212,5 +231,4 @@ export default {
             margin-top: -5px;
         }
     }
-
 </style>

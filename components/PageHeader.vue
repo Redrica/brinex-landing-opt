@@ -1,5 +1,7 @@
 <template>
-  <div class="header" ref="header">
+  <div class="header"
+       :class="{ 'opened': menuIsOpened }"
+       ref="header">
     <header class="header__inner container">
       <img class="header__logo header__logo--full" src="../assets/img/brinex_logo_full.svg" width="116"
            alt="Логотип компании Бринекс"/>
@@ -7,27 +9,33 @@
            alt="Логотип компании Бринекс"/>
       <img class="header__logo header__logo--full-white-bg" src="../assets/img/brinex_logo_full_white_bg.svg" width="116"
            alt="Логотип компании Бринекс"/>
-      <nav class="header__nav menu">
-        <a class="menu__item" href="">
-          <icon class="menu__icon" name="Catalog"/>
-          Каталог товаров и услуг</a>
-        <a class="menu__item" href="tel:88002509780">
-          <icon class="menu__icon" name="Phone"/>
-          8 800 250-97-80</a>
-        <div class="menu__item menu__item--submenu">
-          <p class="menu__item-block">
-            <span class="menu__item-text">Оптовым клиентам</span>
-            <icon class="menu__icon" name="Arrow"/>
-          </p>
-          <ul class="menu__submenu submenu">
-            <li class="submenu__item" v-for="link in menuLinks">
-              <a class="submenu__link" :href="link.href">{{ link.name }}</a>
-            </li>
-          </ul>
-        </div>
-        <a class="menu__item" href="">Корпоративным клиентам</a>
-        <a class="menu__item" href="">Франшиза</a>
-      </nav>
+      <div class="header__nav-wrapper">
+        <nav class="header__nav menu" :class="{ 'menu--mobile': menuIsOpened }">
+          <a class="menu__item" href="">
+            <icon class="menu__icon" name="Catalog"/>
+            Каталог товаров и услуг</a>
+          <a class="menu__item" href="tel:88002509780">
+            <icon class="menu__icon" name="Phone"/>
+            8 800 250-97-80</a>
+          <div class="menu__item menu__item--submenu">
+            <p class="menu__item-block">
+              <span class="menu__item-text">Оптовым клиентам</span>
+              <icon class="menu__icon" name="Arrow"/>
+            </p>
+            <ul class="menu__submenu submenu">
+              <li class="submenu__item" v-for="link in $options.menuLinks">
+                <a class="submenu__link" :href="link.href">{{ link.name }}</a>
+              </li>
+            </ul>
+          </div>
+          <a class="menu__item" href="">Корпоративным клиентам</a>
+          <a class="menu__item" href="">Франшиза</a>
+        </nav>
+      </div>
+
+      <button class="header__button"
+              :class="{ 'close': menuIsOpened }"
+              @click="handleMenu"></button>
 
     </header>
   </div>
@@ -39,9 +47,12 @@ import { mapState } from 'vuex';
 
 export default {
   name: 'PageHeader',
+
+  menuLinks: menuLinks,
+
   data() {
     return {
-      menuLinks: menuLinks,
+      menuIsOpened: false,
     }
   },
 
@@ -63,6 +74,15 @@ export default {
         this.$refs[ 'header' ].classList.remove('header--sticky');
       }
     },
+
+    handleMenu() {
+      this.menuIsOpened = !this.menuIsOpened;
+
+      if(this.menuIsOpened) {
+
+      }
+
+    }
   },
 
   watch: {
@@ -160,6 +180,37 @@ export default {
                 display: none;
             }
         }
+
+      @media ($desktop) {
+        &.opened {
+          position: fixed;
+          top: 0;
+          right: 0;
+          bottom: 0;
+          left: 0;
+          background-color: $white;
+
+          &::before {
+            content: none;
+          }
+
+          & .header__logo--full {
+            display: none;
+          }
+
+          & .header__logo--full-white-bg {
+            display: none;
+          }
+
+          & .header__logo--small {
+            display: block;
+          }
+
+          & .header__nav-wrapper {
+            display: block;
+          }
+        }
+      }
     }
 
     .header__inner {
@@ -168,10 +219,23 @@ export default {
         align-items: flex-start;
         padding: 22px 30px 0 36px;
         transition: all 0.2s ease;
+
+      @media ($desktop) {
+        position: relative;
+        flex-direction: column;
+        padding: 15px 20px;
+      }
     }
 
     .header__logo {
         margin-right: 39px;
+
+      &--full {
+        @media ($desktop) {
+          width: 77px;
+          height: 42px;
+        }
+      }
 
         &--small {
             display: none;
@@ -182,9 +246,91 @@ export default {
         }
     }
 
+    .header__nav-wrapper {
+      width: 100%;
+
+      @media ($desktop) {
+        display: none;
+      }
+    }
+
     .header__nav {
-        display: flex;
         flex-grow: 1;
+
+      @media ($desktop) {
+
+      }
+    }
+
+    .header__button {
+      display: none;
+
+      &:focus {
+        outline: none;
+      }
+
+      @media ($desktop) {
+        position: absolute;
+        top: 15px;
+        right: 20px;
+        display: block;
+        width: 36px;
+        height: 36px;
+        background: none;
+        border: none;
+
+        &::before,
+        &::after {
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          width: 100%;
+          height: 3px;
+          background-color: $white;
+          transform: translate(-50%, -50%);
+          transition: all 0.2s ease;
+        }
+
+        &::before {
+          content: '';
+          box-shadow: 0 10px 0 white, 0 -10px 0 white;
+        }
+      }
+
+      &.close {
+        &::before {
+          box-shadow: none;
+          background-color: $black;
+          transform: translate(-50%, -50%) rotate(45deg);
+        }
+
+        &::after {
+          content: '';
+          background-color: $black;
+          transform: translate(-50%, -50%) rotate(-45deg);
+        }
+      }
+    }
+
+    .menu {
+      display: flex;
+
+      &--mobile {
+        flex-direction: column;
+        padding-right: 120px;
+
+        & .menu__item {
+          font-family: "ALS Gorizont", "Trebuchet MS", sans-serif;
+          font-weight: 500;
+          font-size: 24px;
+          line-height: 112%;
+          color: $black;
+        }
+
+        &1u .menu__icon {
+          display: none;
+        }
+      }
     }
 
     .menu__item {
@@ -299,5 +445,4 @@ export default {
             color: $primaryConversed;
         }
     }
-
 </style>

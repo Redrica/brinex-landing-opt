@@ -4,15 +4,15 @@
       brinex-landing-opt
     </h1>
     <StartScreen/>
-    <CatalogScreen/>
-    <CertificatesScreen/>
-    <StoresScreen/>
-    <OptionsScreen/>
-    <PortalScreen/>
-    <BusinessScreen/>
-    <ExperienceScreen/>
-    <AnalyticsScreen/>
-    <ReviewsScreen/>
+<!--    <CatalogScreen/>-->
+<!--    <CertificatesScreen/>-->
+<!--    <StoresScreen/>-->
+<!--    <OptionsScreen/>-->
+<!--    <PortalScreen/>-->
+<!--    <BusinessScreen/>-->
+<!--    <ExperienceScreen/>-->
+<!--    <AnalyticsScreen/>-->
+<!--    <ReviewsScreen/>-->
   </div>
 </template>
 

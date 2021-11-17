@@ -4,7 +4,7 @@ export const businessList = [
   [
     {
       text: 'Поможем собрать ассортимент ходовых товаров',
-      className: 'offers-list__item--wheel-bg'
+      className: 'offers-list__item--wheel-bg',
     },
     {
       text: 'Создадим вам сайт на базе портала Бринэкс',
@@ -23,8 +23,6 @@ export const businessList = [
       className: 'offers-list__item--percent-small-bg'
     },
   ],
-
-
   [
     {
       text: 'Автоматизация обменов по товарам, заказам и документам',
@@ -47,8 +45,6 @@ export const businessList = [
       className: 'offers-list__item--percent-small-bg'
     },
   ],
-
-
   [
     {
       text: 'Обеспечим всем необходимым — от станков до расходников',

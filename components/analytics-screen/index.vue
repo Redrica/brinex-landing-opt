@@ -85,7 +85,7 @@ export default {
         position: sticky;
         top: 100px;
         width: 372px;
-        margin: 0;
+        margin: 0 24px 0 0;
         padding: 0;
         list-style: none;
     }

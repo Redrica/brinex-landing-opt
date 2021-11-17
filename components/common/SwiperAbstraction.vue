@@ -46,7 +46,7 @@ export default {
     },
   },
   mounted() {
-    console.log('Current Swiper instance object myDirectiveSwiper', this.myDirectiveSwiper);
+    // console.log('Current Swiper instance object myDirectiveSwiper', this.myDirectiveSwiper);
     // this.myDirectiveSwiper.destroy();
     // this.test();
 
